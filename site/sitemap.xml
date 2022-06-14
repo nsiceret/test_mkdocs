@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://nsiceret.github.io/</loc>
+         <loc>https://nsiceret.github.io/site/</loc>
          <lastmod>2022-06-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://nsiceret.github.io/1NSI/</loc>
+         <loc>https://nsiceret.github.io/site/1NSI/</loc>
          <lastmod>2022-06-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://nsiceret.github.io/TNSI/</loc>
+         <loc>https://nsiceret.github.io/site/TNSI/</loc>
          <lastmod>2022-06-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
