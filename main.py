@@ -115,6 +115,7 @@ def define_env(env):
         that triggers the hidden input.
         """
         path_img = env.variables.page.abs_url.split('/')[1]
+        path_img = env.variables.page.abs_url
         return f"""<button class="tooltip" onclick="document.getElementById('input_editor_{tc}').click()"><img src="{path_img}/images/buttons/icons8-upload-64.png"><span class="tooltiptext">Téléverser</span></button>\
                 <input type="file" id="input_editor_{tc}" name="file" enctype="multipart/form-data" class="hide"/>"""
 
@@ -130,6 +131,7 @@ def define_env(env):
         # print(nom_script, path, content, content == "")
         if content != "":
             path_img = env.variables.page.abs_url.split('/')[1]
+            path_img = env.variables.page.abs_url
             return f"""<span id="test_term_editor_{tc}" class="hide">{content}</span>\
                 <button class="tooltip" onclick=\'executeTest("{tc}","{mode}")\'>\
                 <img src="{path_img}/images/buttons/icons8-check-64.png">\
@@ -197,6 +199,7 @@ def define_env(env):
         """
         print("docs_dirs", env.conf['docs_dir'])
         path_img = convert_url_to_utf8(env.variables.page.abs_url).split('/')[1]
+        path_img = env.variables.page.abs_url
         print(path_img)
         path_file = '/'.join(filter(lambda folder: folder != "", convert_url_to_utf8(env.variables.page.abs_url).split('/')[2:-2]))
         print('P1','/'.join(filter(lambda folder: folder != "", convert_url_to_utf8(env.variables.page.url).split('/')[:-2])))
