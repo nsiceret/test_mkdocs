@@ -12,3 +12,6 @@ bientôt ici
 
 
 ## Section euro ?
+
+
+{{IDE ('')}}
