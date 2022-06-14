@@ -114,7 +114,7 @@ def define_env(env):
         Methods : Use an HTML input to upload a file from user. The user clicks on the button to fire a JS event
         that triggers the hidden input.
         """
-        path_img = env.variables.page.abs_url.split('/')[1]
+        path_img = env.variables.page.abs_url.split('/site/')[0]+"/site/"
         return f"""<button class="tooltip" onclick="document.getElementById('input_editor_{tc}').click()"><img src="{path_img}/images/buttons/icons8-upload-64.png"><span class="tooltiptext">Téléverser</span></button>\
                 <input type="file" id="input_editor_{tc}" name="file" enctype="multipart/form-data" class="hide"/>"""
 
@@ -129,7 +129,7 @@ def define_env(env):
         content = read_ext_file(nom_script, path)
         # print(nom_script, path, content, content == "")
         if content != "":
-            path_img = env.variables.page.abs_url.split('/')[1]
+            path_img = env.variables.page.abs_url.split('/site/')[0]+"/site/"
             return f"""<span id="test_term_editor_{tc}" class="hide">{content}</span>\
                 <button class="tooltip" onclick=\'executeTest("{tc}","{mode}")\'>\
                 <img src="{path_img}/images/buttons/icons8-check-64.png">\
@@ -196,7 +196,7 @@ def define_env(env):
         Last span hides the code content of the IDE if loaded.
         """
         print("docs_dirs", env.conf['docs_dir'])
-        path_img = convert_url_to_utf8(env.variables.page.abs_url).split('/')[1]
+        path_img = convert_url_to_utf8(env.variables.page.abs_url).split('/site/')[0]+"/site/"
         print(path_img)
         path_file = '/'.join(filter(lambda folder: folder != "", convert_url_to_utf8(env.variables.page.abs_url).split('/')[2:-2]))
         print('P1','/'.join(filter(lambda folder: folder != "", convert_url_to_utf8(env.variables.page.url).split('/')[:-2])))
