@@ -9,6 +9,7 @@ nav:
   - "🏡 Accueil": index.md
   - "Première NSI": 1NSI/index.md
   - "Terminale NSI": TNSI/index.md
+  - "Section Euro": euro/index.md
 
 theme:
     name: material
