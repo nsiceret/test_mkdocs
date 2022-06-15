@@ -1,19 +1,13 @@
 # NSI en première
 
-## Bases de la programmation
+## 01. Bases de la programmation
 
-### France-IOI
+Pour cette partie, nous utiliserons des jeux interactifs pour apprendre ou revoir les bases de la programmation en Python.
 
-Pour cette partie, nous utiliserons les exercices auto-corrigés de l'association France-IOI. Votre mission : aider des extraterrestres grâce à votre robot. Rendez-vous sur [le site de France-IOI](http://www.france-ioi.org/).
+Sur [le site de France-IOI](http://www.france-ioi.org/) votre mission sera d'aider des extraterrestres grâce à votre robot. Les explications pour créer un compte seront données en classe.
 
-Il vous faudra :
+Le site [Py-rates](https://py-rates.org/) est un autre site d'apprentissage de programmation, mais cette fois-ci le jeu consiste à aider des pirates.
 
-1. créer un compte
-1. vous inscrire à la classe virtuelle appelée "1NSI Céret"
-1. résoudre les problèmes de la section "Progresser - Cours et problèmes" du menu de gauche de ce site. Nous nous contenterons des niveaux 1 et 2.
+## 02. Architecture d'un ordinateur
 
-Ne faites pas tout tout de suite :wink:, la progression sera donnée en classe.
-
-### Pyrates
-
-Pour réviser, le site [Py-rates](https://py-rates.org/), mais cette fois-ci le jeu consiste à aider des pirates.
+Qu'est-ce qu'un ordinateur ? Quel est le déroulement d'un programme en langage machine ? [Rendez-vous sur la page dédiée](02ArchitectureOrdinateur.md)
