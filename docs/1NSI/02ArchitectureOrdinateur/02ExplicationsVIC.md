@@ -1,4 +1,4 @@
-# Comment utiliser *VIC*
+# Comment utiliser VIC
 
 [*VIC* (Visual Computer)](https://faculty.runi.ac.il/vic/software/computer/) est un ordinateur minimal utilisable en ligne pour simuler le *langage machine*. Il comporte très peu de composants et ne comprend qu'un nombre très réduit d'instructions. Cette simplification permet de comprendre le **modèle de von Neumann** et les bases du **langage machine**. Dans *VIC*, toutes les données sont des nombres entiers à trois chiffres (de -999 à 999).
 
@@ -8,7 +8,7 @@ L'interface de *VIC* est composée de trois parties, elles-mêmes partagées en 
 
 - les **composants d'entrée/sortie** (*I/O Units*), avec :
     * un **composant d'entrée** (*Input*) dans lequel vous pourrez écrire des nombres pour tester vos programmes ;
-    * un **composant de sortie** (*Output*) dans lequel le programme peut ÉCRIRE un nombre;
+    * un **composant de sortie** (*Output*) dans lequel le programme peut écrire un nombre;
 - un **processeur** (*CPU*), composé de :
     * un **registre d'instruction** (*Instruction Register*) dans lequel est indiquée la prochaine instruction à exécuter ;
     * un **registre de données** (*Data Register*) qui contient la donnée à traiter (VIC ne peut traiter qu'une donnée à la fois) ;

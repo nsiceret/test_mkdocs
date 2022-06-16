@@ -10,8 +10,8 @@ nav :
     - 1NSI:
         - 1NSI/index.md
         - 1NSI/01BasesProgrammation/index.md
-        - Architecture d'un ordinateur: 
-           - Présentation: 1NSI/02ArchitectureOrdinateur/index.md
+        - 02. Architecture d'un ordinateur: 
+           - 1NSI/02ArchitectureOrdinateur/index.md
            - 1NSI/02ArchitectureOrdinateur/02ExplicationsVIC.md
            - 1NSI/02ArchitectureOrdinateur/02ExercicesVIC.md
     - TNSI:

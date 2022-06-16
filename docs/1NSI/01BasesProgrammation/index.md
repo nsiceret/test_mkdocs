@@ -1,4 +1,4 @@
-# Bases de la programmation
+# 01. Bases de la programmation
 
 Sur [le site de France-IOI](http://www.france-ioi.org/) votre mission sera d'aider des extraterrestres grâce à votre robot. Les explications pour créer un compte seront données en classe.
 
