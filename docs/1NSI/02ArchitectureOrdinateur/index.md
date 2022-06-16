@@ -17,13 +17,4 @@ Pour cette partie, nous utiliserons un simulateur en ligne d'ordinateur appelé 
 
 - [*VIC* en ligne](https://faculty.runi.ac.il/vic/software/computer/)
 - [Les explications sur son fonctionnement](02ExplicationsVIC.md)
-- [Quelques petits programmes](02ProgrammesVIC.md) à programmer vous-même dans VIC.
-
- à faire :
-
-- lire deux nombres et afficher leur somme ;
-- lire trois nombres et afficher leur somme ;
-- lire deux nombres et afficher le plus grand des deux ;
-- lire une liste de nombres se terminant par un 0 et calculer leur somme ;
-- une boucle infinie ;
-- calculer et afficher la liste des nombres entiers naturels : 0, 1, 2 etc. jusqu'à ce que l'utilisateur appuie sur le bouton Stop.
+- [Quelques petits programmes](02ExercicesVIC.md) à programmer vous-même dans VIC.

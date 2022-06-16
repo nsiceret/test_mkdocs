@@ -5,11 +5,15 @@ edit_uri: tree/main/docs/
 
 docs_dir: docs
 
-nav:
-  - "🏡 Accueil": index.md
-  - "Première NSI": 1NSI/index.md
-  - "Terminale NSI": TNSI/index.md
-  - "Section Euro": euro/index.md
+nav :
+    - Accueil: index.md
+    - 1NSI:
+        - Accueil: 1NSI/index.md
+        - Bases de la programmation: 1NSI/01BasesProgrammation/index.md
+        - Architecture d'un ordinateur: 1NSI/02ArchitectureOrdinateur/index.md
+    - TNSI:
+        - Accueil: TNSI/index.md
+
 
 theme:
     name: material
@@ -32,15 +36,15 @@ theme:
             icon: material/weather-sunny
             name: Passer au mode nuit
     features:
+        - navigation.expand
+        - navigation.indexes
         - navigation.instant
+        - navigation.prune
+        - navigation.sections
         - navigation.tabs
         - navigation.tabs.sticky
-        - navigation.sections
-        # - navigation.expand
-        - navigation.tracking
         - navigation.top
-        # - toc.integrate
-        # - header.autohide
+        - navigation.tracking
 
 
 markdown_extensions:
