@@ -11,12 +11,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://nsiceret.github.io/site/1NSI/01BasesProgrammation/</loc>
+         <lastmod>2022-06-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://nsiceret.github.io/site/1NSI/02ArchitectureOrdinateur/</loc>
          <lastmod>2022-06-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://nsiceret.github.io/site/1NSI/02ExplicationsVIC/</loc>
+         <loc>https://nsiceret.github.io/site/1NSI/02ArchitectureOrdinateur/02ExercicesVIC/</loc>
+         <lastmod>2022-06-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://nsiceret.github.io/site/1NSI/02ArchitectureOrdinateur/02ExplicationsVIC/</loc>
          <lastmod>2022-06-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
