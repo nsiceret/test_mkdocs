@@ -12,9 +12,14 @@ Presque tous les ordinateurs fonctionnent selon le même modèle, appelé **mod�
 
 ## Le langage machine
 
-Pour cette partie, nous utiliserons un simulateur en ligne d'ordinateur: [VIC](https://faculty.runi.ac.il/vic/software/computer/) Les explications sur son fonctionnement seront données en classe.
+Pour cette partie, nous utiliserons un simulateur en ligne d'ordinateur appelé *VIC* (*VIsual Computer*). 
 
-Quelques petits programmes à faire :
+
+- [*VIC* en ligne](https://faculty.runi.ac.il/vic/software/computer/)
+- [Les explications sur son fonctionnement](02ExplicationsVIC.md)
+- [Quelques petits programmes](02ProgrammesVIC.md) à programmer vous-même dans VIC.
+
+ à faire :
 
 - lire deux nombres et afficher leur somme ;
 - lire trois nombres et afficher leur somme ;
