@@ -436,3 +436,24 @@ document.querySelectorAll("[id^=recharger_]").forEach((el) => {
 // // MathJax.typesetPromise([node]).then(() => {
 // //   // the new content is has been typeset
 // // });
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('pre code.qcm').forEach((el) => {
+        hljs.highlightElement(el);
+        });
+    });
+    
+    document.querySelectorAll("[id^=qcm_]").forEach((el) => {
+        let qcmAns = el.childNodes;
+        if (el.dataset.shuffle == 1) {
+        for (let i = qcmAns.length - 1; i >= 0; i--) el.appendChild(qcmAns[Math.floor(Math.random() * i)])
+        }
+        
+        for (let element of el.children) {
+        element.addEventListener('click', () => {
+            element.firstChild.disabled = true
+            element.firstChild.checked = true
+        })
+        }
+    });

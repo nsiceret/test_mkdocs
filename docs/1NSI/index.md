@@ -1,9 +1,7 @@
 # NSI en première
 
-## 01. Bases de la programmation
+Pour accéder à un chapitre du cours de première NSI, cliquez sur le menu de gauche.
 
-Pour cette partie, nous utiliserons des jeux interactifs pour apprendre ou revoir les bases de la programmation en Python. [Rendez-vous sur la page dédiée](01BasesProgrammation)
+Ci-dessous, une interface Python.
 
-## 02. Architecture d'un ordinateur
-
-Qu'est-ce qu'un ordinateur ? Quel est le déroulement d'un programme en langage machine ? [Rendez-vous sur la page dédiée](02ArchitectureOrdinateur)
+{{IDE()}}
