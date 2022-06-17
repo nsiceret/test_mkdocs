@@ -1,3 +1,0 @@
-# 12. Matrices
-
-(bientôt)
