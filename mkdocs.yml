@@ -26,15 +26,15 @@ theme:
     palette:                        # Palettes de couleurs jour/nuit
       - media: "(prefers-color-scheme: light)"
         scheme: slate
-        primary: blue
-        accent: blue
+        primary: teal
+        accent: orange
         toggle:
             icon: material/weather-night
             name: Passer au mode jour
       - media: "(prefers-color-scheme: dark)"
         scheme: default
-        primary: indigo
-        accent: indigo
+        primary: green
+        accent: pink
         toggle:
             icon: material/weather-sunny
             name: Passer au mode nuit
