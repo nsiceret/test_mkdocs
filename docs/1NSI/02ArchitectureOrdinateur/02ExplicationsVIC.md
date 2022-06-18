@@ -15,8 +15,10 @@ L'interface de *VIC* est composée de trois parties, elles-mêmes partagées en 
     * un **compteur ordinal** (*Program Counter*) qui contient l'adresse en mémoire de l'instruction à exécuter.
 - une **mémoire vive** (*Memory*) composée de 100 **cases mémoire** ou **cellules** numérotées de 00 à 99.
 
+Les seules cases dans lesquelles vous pouvez écrire "à la main" sont celles du composant d'entrée et de la mémoire. Les autres seront calculées par *VIC*.
+
 ## Instructions
-Comme les "vrais" ordinateurs, *VIC* ne connaît qu'un petit nombre d'instructions. Elles sont au nombre de dix.
+Comme les "vrais" ordinateurs, *VIC* ne connaît qu'un petit nombre d'instructions. Elles sont ici au nombre de dix.
 
 VIC commence son exécution avec l'instructions située dans la case mémoire d'adresse 00. À chaque étape, il exécute l'instruction située dans la case mémoire courante puis passe à la suvante.
 
@@ -26,13 +28,15 @@ Le programme s'arrête lorsqu'il rencontre une case mémoire vide ou, ce qui rev
 
 ### Le langage machine
 
-Le **langage machine** est le langage compris par la machine au niveau des composants. Il s'exprime à l'aide de nombres entiers. Pour faciliter le travail des humains, on utilse un langage appelé **assembleur** qui consiste à remplacer chaque nombre par une expression plus lisible.
+Le **langage machine** est le langage compris par la machine au niveau des composants. Il s'exprime à l'aide de nombres entiers. Pour faciliter le travail des humains, on utilise un langage appelé **assembleur** qui consiste à remplacer chaque nombre par une expression plus lisible.
+
+Par exemple, nous avons vu que l'instruction machine 000 se traduit en assembleur par STOP.
 
 ### Entrée-sortie
 *VIC* comprend deux instructions d'entrée-sortie :
 
-- 800 : LIRE la case courante de Input et mettre sa valeur dans le registre de données
-- 900 : ÉCRIRE la valeur du registre de données dans la case suivante de Output
+- 800 : LIRE la case courante du composant d'entrée et mettre sa valeur dans le registre de données
+- 900 : ÉCRIRE la valeur du registre de données dans la case suivante du composant de sortie.
 
 !!! example "Premier exemple : lire et afficher"
     Un programme qui lit une donnée puis l'écrit dans *Ouput*. Ce programme s'écrirait ainsi en assembleur :
@@ -50,19 +54,19 @@ Le **langage machine** est le langage compris par la machine au niveau des compo
     ```
     Essayez ! Si vous écrivez n'importe quel nombre dans la premièce cellule de *Input*, ce programme va l'écrire dans *Ouput*. Pour que cela fonction, il faut écrire `800` dans la case mémoire d'adresse 00 et `900` dans celle d'adresse `01`.
 
-Dans la suite, nous ommettrons la ligne `000 STOP` pour alléger les programmes.
+Dans la suite, nous omettrons la ligne `000 STOP` pour alléger les programmes.
 
 
 ### Avec la mémoire
 
 Deux instructions permettent de travailler avec la mémoire vive :
 
-- 3xx : CHARGER le contenu de la case mémoire dont l'adresse est xx (où xx représente deux chiffres) dans le registre de données depuis
+- 3xx : CHARGER le contenu depuis la case mémoire dont l'adresse est xx (où xx représente deux chiffres) dans le registre de données ;
 - 4xx : ENREGISTRER le contenu du registre de données dans la case mémoire dont l'adresse est xx.
 
 !!! example "Affichage inverse"
     On veut lire deux nombres, puis les afficher dans l'ordre inverse : d'abord le deuxième nombre entré, puis le premier. Pour cela, il faut garder le premier nombre en mémoire, par exemple dans la case 10.
-    En assembleur : 
+    En assembleur cela donne : 
     ```
     LIRE
     ENREGISTRER dans la case mémoire 10
@@ -91,7 +95,7 @@ Deux instructions permettent de travailler avec la mémoire vive :
 !!! warning "Attention"
     L'ordre des nombres pour la soustraction est important.
 
-!!! example "Addition"
+!!! example "Addition de deux nombres"
     Pour additionner deux nombres donnés en entrée, il faudra en enregistrer un en mémoire, par exemple dans la case 09.
     ```
     LIRE (le premier nombre)
@@ -136,7 +140,8 @@ Pour faire des tests, *VIC* possède deux autres instructions de contrôle de fl
 - 7xx : ALLER_POS qui envoie à la case mémoire xx si le registre de données contient une valeur strictement positive. Dans les autres cas, *VIC* passe à la case mémoire suivante comme d'habitude.
 
 !!! example "Liste de nombres positifs"
-    On voudrait afficher une liste de nombres positifs donnés en entrée. Il va donc falloir LIRE, puis ALLER à une cellule indiquant d'écrire et de revenir au début du programme si le nombre lu est positif. Si le nombre n'est pas positif, on passe à la cellule suivante qui arrête le programme.
+    On voudrait afficher une liste de nombres positifs donnés en entrée. Il va donc falloir LIRE, puis ALLER à une cellule indiquant d'écrire et de revenir au début du programme si le nombre lu est positif. Si le nombre n'est pas positif, on passe à la cellule suivante qui arrête le programme. Ce programme va lire et afficher les nombres positifs qui seront donnés en entrée. Il s'arrêtera au premier nombre négatif ou nul rencontré.
+
     En assembleur :
     ```
     LIRE

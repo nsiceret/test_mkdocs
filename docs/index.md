@@ -14,4 +14,4 @@ bientôt ici
 ## Section euro ?
 
 
-{{IDE ('')}}
+{{ IDE('exemple') }}
