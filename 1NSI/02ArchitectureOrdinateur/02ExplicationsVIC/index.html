@@ -1,4 +1,4 @@
-    
+
 <!doctype html>
 <html lang="fr" class="no-js">
   <head>
@@ -27,24 +27,17 @@
       
     
     
-        
-        <!-- favicons -->
-        <link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="../assets/images/favicon_32x32.png" sizes="32x32">
-        <link rel="icon" href="../assets/images/favicon_96x96.png" sizes="96x96">
-        <link rel="icon" href="../assets/images/favicon_144x144.png" sizes="144x144">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-light.min.css">
-        <!-- Load CDNs : Pyodide (Python in WASM), Ace (Editor) and JQuery (Terminal) -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" type="text/javascript" charset="utf-8"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.js"></script>
-        <script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.asm.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/js-md5"></script>
-        <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
-        <script src="https://cdn.jsdelivr.net/npm/jquery.terminal@2.23.0/js/jquery.terminal.min.js"></script>
-        <link href="https://cdn.jsdelivr.net/npm/jquery.terminal@2.23.0/css/jquery.terminal.min.css" rel="stylesheet">
     
+    <!-- Load CDNs : Pyodide (Python in WASM), Ace (Editor) and JQuery (Terminal) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.js"></script>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.asm.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-md5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.terminal@2.23.0/js/jquery.terminal.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/jquery.terminal@2.23.0/css/jquery.terminal.min.css" rel="stylesheet">
+
     
       
     
@@ -59,13 +52,6 @@
     
       
 
-    
-    
-    
-    
-    
-    <input id="ace_palette" autocomplete="off" class="md-toggle" data-ace-dark-mode="tomorrow_night_bright" data-ace-light-mode="crimson_editor" type="checkbox"></input>
-    
     
     
   </head>
@@ -1029,20 +1015,22 @@
 </li>
 <li>une <strong>mémoire vive</strong> (<em>Memory</em>) composée de 100 <strong>cases mémoire</strong> ou <strong>cellules</strong> numérotées de 00 à 99.</li>
 </ul>
+<p>Les seules cases dans lesquelles vous pouvez écrire "à la main" sont celles du composant d'entrée et de la mémoire. Les autres seront calculées par <em>VIC</em>.</p>
 <h2 id="instructions">Instructions<a class="headerlink" href="#instructions" title="Permanent link">⚓︎</a></h2>
-<p>Comme les "vrais" ordinateurs, <em>VIC</em> ne connaît qu'un petit nombre d'instructions. Elles sont au nombre de dix.</p>
+<p>Comme les "vrais" ordinateurs, <em>VIC</em> ne connaît qu'un petit nombre d'instructions. Elles sont ici au nombre de dix.</p>
 <p>VIC commence son exécution avec l'instructions située dans la case mémoire d'adresse 00. À chaque étape, il exécute l'instruction située dans la case mémoire courante puis passe à la suvante.</p>
 <p>Le programme s'arrête lorsqu'il rencontre une case mémoire vide ou, ce qui revient au même, qui contient le nombre 0. Nous avons donc notre première instruction en langage machine :</p>
 <ul>
 <li>000 : STOP arrêter le programme.</li>
 </ul>
 <h3 id="le-langage-machine">Le langage machine<a class="headerlink" href="#le-langage-machine" title="Permanent link">⚓︎</a></h3>
-<p>Le <strong>langage machine</strong> est le langage compris par la machine au niveau des composants. Il s'exprime à l'aide de nombres entiers. Pour faciliter le travail des humains, on utilse un langage appelé <strong>assembleur</strong> qui consiste à remplacer chaque nombre par une expression plus lisible.</p>
+<p>Le <strong>langage machine</strong> est le langage compris par la machine au niveau des composants. Il s'exprime à l'aide de nombres entiers. Pour faciliter le travail des humains, on utilise un langage appelé <strong>assembleur</strong> qui consiste à remplacer chaque nombre par une expression plus lisible.</p>
+<p>Par exemple, nous avons vu que l'instruction machine 000 se traduit en assembleur par STOP.</p>
 <h3 id="entree-sortie">Entrée-sortie<a class="headerlink" href="#entree-sortie" title="Permanent link">⚓︎</a></h3>
 <p><em>VIC</em> comprend deux instructions d'entrée-sortie :</p>
 <ul>
-<li>800 : LIRE la case courante de Input et mettre sa valeur dans le registre de données</li>
-<li>900 : ÉCRIRE la valeur du registre de données dans la case suivante de Output</li>
+<li>800 : LIRE la case courante du composant d'entrée et mettre sa valeur dans le registre de données</li>
+<li>900 : ÉCRIRE la valeur du registre de données dans la case suivante du composant de sortie.</li>
 </ul>
 <div class="admonition example">
 <p class="admonition-title">Premier exemple : lire et afficher</p>
@@ -1058,17 +1046,17 @@ ce qui donne, en langage machine de <em>VIC</em> :</p>
 </code></pre></div>
 Essayez ! Si vous écrivez n'importe quel nombre dans la premièce cellule de <em>Input</em>, ce programme va l'écrire dans <em>Ouput</em>. Pour que cela fonction, il faut écrire <code>800</code> dans la case mémoire d'adresse 00 et <code>900</code> dans celle d'adresse <code>01</code>.</p>
 </div>
-<p>Dans la suite, nous ommettrons la ligne <code>000 STOP</code> pour alléger les programmes.</p>
+<p>Dans la suite, nous omettrons la ligne <code>000 STOP</code> pour alléger les programmes.</p>
 <h3 id="avec-la-memoire">Avec la mémoire<a class="headerlink" href="#avec-la-memoire" title="Permanent link">⚓︎</a></h3>
 <p>Deux instructions permettent de travailler avec la mémoire vive :</p>
 <ul>
-<li>3xx : CHARGER le contenu de la case mémoire dont l'adresse est xx (où xx représente deux chiffres) dans le registre de données depuis</li>
+<li>3xx : CHARGER le contenu depuis la case mémoire dont l'adresse est xx (où xx représente deux chiffres) dans le registre de données ;</li>
 <li>4xx : ENREGISTRER le contenu du registre de données dans la case mémoire dont l'adresse est xx.</li>
 </ul>
 <div class="admonition example">
 <p class="admonition-title">Affichage inverse</p>
 <p>On veut lire deux nombres, puis les afficher dans l'ordre inverse : d'abord le deuxième nombre entré, puis le premier. Pour cela, il faut garder le premier nombre en mémoire, par exemple dans la case 10.
-En assembleur : 
+En assembleur cela donne : 
 <div class="highlight"><pre><span></span><code>LIRE
 ENREGISTRER dans la case mémoire 10
 LIRE
@@ -1096,7 +1084,7 @@ en langage machine de <em>VIC</em> :
 <p>L'ordre des nombres pour la soustraction est important.</p>
 </div>
 <div class="admonition example">
-<p class="admonition-title">Addition</p>
+<p class="admonition-title">Addition de deux nombres</p>
 <p>Pour additionner deux nombres donnés en entrée, il faudra en enregistrer un en mémoire, par exemple dans la case 09.
 <div class="highlight"><pre><span></span><code>LIRE (le premier nombre)
 ENREGISTRER dans la case mémoire 09
@@ -1137,8 +1125,8 @@ Vous verrez le <strong>compteur ordinal</strong> (<em>Program Counter</em>) alte
 </ul>
 <div class="admonition example">
 <p class="admonition-title">Liste de nombres positifs</p>
-<p>On voudrait afficher une liste de nombres positifs donnés en entrée. Il va donc falloir LIRE, puis ALLER à une cellule indiquant d'écrire et de revenir au début du programme si le nombre lu est positif. Si le nombre n'est pas positif, on passe à la cellule suivante qui arrête le programme.
-En assembleur :
+<p>On voudrait afficher une liste de nombres positifs donnés en entrée. Il va donc falloir LIRE, puis ALLER à une cellule indiquant d'écrire et de revenir au début du programme si le nombre lu est positif. Si le nombre n'est pas positif, on passe à la cellule suivante qui arrête le programme. Ce programme va lire et afficher les nombres positifs qui seront donnés en entrée. Il s'arrêtera au premier nombre négatif ou nul rencontré.</p>
+<p>En assembleur :
 <div class="highlight"><pre><span></span><code>LIRE
 ALLER_POS à 03
 STOP
@@ -1156,7 +1144,7 @@ en langage machine :
 
               
     <script src="../../../js/ide.js"></script> 
-    
+
             </article>
           </div>
         </div>
