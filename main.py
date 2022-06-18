@@ -201,10 +201,10 @@ def define_env(env):
         nom_script = f"{relative_path}/{stripped_nom_script}_test"
         content = read_ext_file(nom_script, path)
         if content is not None: 
-            path_img = env.variables.page.url.split('/')[1]
+            path_img = env.variables.config["site_url"]
             return f"""<span id="test_term_editor_{tc}" class="hide">{content}</span>\
                 <button class="tooltip" onclick=\'executeTest("{tc}","{mode}")\'>\
-                <img src="/images/buttons/icons8-check-64.png">\
+                <img src="{path_img}/images/buttons/icons8-check-64.png">\
                 <span class="tooltiptext">Valider</span></button><span class="compteur">\
                 {MAX}/{MAX}\
                 </span>"""
@@ -258,7 +258,8 @@ def define_env(env):
         Methods : Two modes are available : vertical or horizontal. Buttons are added through functional calls.
         Last span hides the code content of the IDE if loaded.
         """
-        path_img = convert_url_to_utf8(env.variables.page.abs_url).split('/')[1]
+        #path_img = convert_url_to_utf8(env.variables.page.abs_url).split('/')[1]
+        path_img = env.variables.config["site_url"]
 
         path_file = '/'.join(filter(lambda folder: folder != "", convert_url_to_utf8(env.variables.page.abs_url).split('/')[2:-2]))
         content, tc = generate_content(nom_script, path_file)
@@ -280,12 +281,12 @@ def define_env(env):
         else:
             div_edit += f'<div class="wrapper_h"><div class="line" id="editor_{tc}"></div><div id="term_editor_{tc}" class="term_editor_h terminal_f_h"></div></div>'
 
-        div_edit += f"""<button class="tooltip" onclick='interpretACE("editor_{tc}","{mode}")'><img src="/{path_img}/images/buttons/icons8-play-64.png"><span class="tooltiptext">Lancer</span></button>"""
+        div_edit += f"""<button class="tooltip" onclick='interpretACE("editor_{tc}","{mode}")'><img src="{path_img}/images/buttons/icons8-play-64.png"><span class="tooltiptext">Lancer</span></button>"""
         div_edit += create_unittest_button(tc, nom_script, path_file, mode, MAX) 
-        div_edit += f"""{blank_space(1)}<button class="tooltip" onclick=\'downloadFile("editor_{tc}","{nom_script}")\'><img src="/{path_img}/images/buttons/icons8-download-64.png"><span class="tooltiptext">Télécharger</span></button>{blank_space()}"""
+        div_edit += f"""{blank_space(1)}<button class="tooltip" onclick=\'downloadFile("editor_{tc}","{nom_script}")\'><img src="{path_img}/images/buttons/icons8-download-64.png"><span class="tooltiptext">Télécharger</span></button>{blank_space()}"""
         div_edit += create_upload_button(tc) 
-        div_edit += f"""{blank_space(1)}<button class="tooltip" onclick=\'reload("{tc}","content")\'><img src="/{path_img}/images/buttons/icons8-restart-64.png"><span class="tooltiptext">Recharger</span></button>{blank_space()}"""
-        div_edit += f"""<button class="tooltip" onclick=\'saveEditor("{tc}","content")\'><img src="/{path_img}/images/buttons/icons8-save-64.png"><span class="tooltiptext">Sauvegarder</span></button>"""
+        div_edit += f"""{blank_space(1)}<button class="tooltip" onclick=\'reload("{tc}","content")\'><img src="{path_img}/images/buttons/icons8-restart-64.png"><span class="tooltiptext">Recharger</span></button>{blank_space()}"""
+        div_edit += f"""<button class="tooltip" onclick=\'saveEditor("{tc}","content")\'><img src="{path_img}/images/buttons/icons8-save-64.png"><span class="tooltiptext">Sauvegarder</span></button>"""
         div_edit += '</div>'
 
         div_edit += f"""<span id="content_editor_{tc}" class="hide">{content}</span>"""
