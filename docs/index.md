@@ -10,7 +10,6 @@ bientôt ici
 
 [lien](TNSI)
 
-
 ## Section euro ?
 
 
