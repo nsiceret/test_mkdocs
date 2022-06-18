@@ -258,7 +258,7 @@ def define_env(env):
         Methods : Two modes are available : vertical or horizontal. Buttons are added through functional calls.
         Last span hides the code content of the IDE if loaded.
         """
-        path_img = convert_url_to_utf8(env.variables.page.abs_url).split('/')[1]
+        path_img = convert_url_to_utf8(env.variables.page.abs_url).split('/site/')[1]
 
         path_file = '/'.join(filter(lambda folder: folder != "", convert_url_to_utf8(env.variables.page.abs_url).split('/')[2:-2]))
         content, tc = generate_content(nom_script, path_file)
