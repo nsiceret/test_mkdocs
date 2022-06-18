@@ -1,6 +1,14 @@
 import os
 
 def define_env(env):
+    
+    # add LZ
+    def create_path(env):
+        u = env.variables.page.abs_url
+        if '/site/' in u:
+            return convert_url_to_utf8(u).split('/site/')[0]+"/"+convert_url_to_utf8(u).split('/site/')[1]
+        else:
+            return convert_url_to_utf8(u).split('/')[1]
     "Hook function"
 
     @env.macro
@@ -187,7 +195,7 @@ def define_env(env):
         Methods : Use an HTML input to upload a file from user. The user clicks on the button to fire a JS event
         that triggers the hidden input.
         """
-        path_img = convert_url_to_utf8(env.variables.page.abs_url).split('/site/')[1]
+        path_img = create_path(env)
         return f"""<button class="tooltip" onclick="document.getElementById('input_editor_{tc}').click()"><img src="/{path_img}/images/buttons/icons8-upload-64.png"><span class="tooltiptext">Téléverser</span></button>\
                 <input type="file" id="input_editor_{tc}" name="file" enctype="multipart/form-data" class="hide"/>"""
 
