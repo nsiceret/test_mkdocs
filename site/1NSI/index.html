@@ -37,16 +37,16 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery.terminal@2.23.0/js/jquery.terminal.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/jquery.terminal@2.23.0/css/jquery.terminal.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-light.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>  
 
     
       
     
     
-      <link rel="stylesheet" href="../xtra/pyoditeur.css">
+      <link rel="stylesheet" href="../xtra/stylesheets/pyoditeur.css">
     
-      <link rel="stylesheet" href="../xtra/ajustements.css">
+      <link rel="stylesheet" href="../xtra/stylesheets/qcm.css">
+    
+      <link rel="stylesheet" href="../xtra/stylesheets/ajustements.css">
     
     <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -846,10 +846,6 @@
 <h1 id="nsi-en-premiere">NSI en première<a class="headerlink" href="#nsi-en-premiere" title="Permanent link">⚓︎</a></h1>
 <p>Pour accéder à un chapitre du cours de première NSI, cliquez sur le menu de gauche.</p>
 <p>Ci-dessous, une interface Python.</p>
-<div class="ide_classe" data-max=5 data-exclude=eval,exec ><div class="wrapper_h"><div class="line" id="editor_3"></div><div id="term_editor_3" class="term_editor_h terminal_f_h"></div></div><button class="tooltip" onclick='interpretACE("editor_3","h")'><img src="https://nsiceret.github.io//images/buttons/icons8-play-64.png"><span class="tooltiptext">Lancer</span></button><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='downloadFile("editor_3","../exemple.py")'><img src="https://nsiceret.github.io//images/buttons/icons8-download-64.png"><span class="tooltiptext">Télécharger</span></button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick="document.getElementById('input_editor_3').click()"><img src="https://nsiceret.github.io//images/buttons/icons8-upload-64.png"><span class="tooltiptext">Téléverser</span></button>                <input type="file" id="input_editor_3" name="file" enctype="multipart/form-data" class="hide"/><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='reload("3","content")'><img src="https://nsiceret.github.io//images/buttons/icons8-restart-64.png"><span class="tooltiptext">Recharger</span></button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick='saveEditor("3","content")'><img src="https://nsiceret.github.io//images/buttons/icons8-save-64.png"><span class="tooltiptext">Sauvegarder</span></button></div>
-<p><span id="content_editor_3" class="hide"></span><span id="corr_content_editor_3" class="hide" data-strudel=""></span></p>
-<p><strong>A</strong></p>
-<p><strong>Z</strong></p>
 
               
     <script src="../js/ide.js"></script> 
@@ -927,11 +923,15 @@
     
       <script src="../assets/javascripts/bundle.c44cc438.min.js"></script>
       
-        <script src="../xtra/config.js"></script>
+        <script src="../xtra/javascripts/mathjax-config.js"></script>
+      
+        <script src="../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
-        <script src="../xtra/interpreter.js"></script>
+        <script src="../xtra/javascripts/interpreter.js"></script>
       
     
   </body>

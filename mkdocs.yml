@@ -115,6 +115,7 @@ extra:
         #- icon: fontawesome/solid/paper-plane
         #  link: mailto:prof-bouillot@protonmail.com
         #  name: Écrire à l'auteur
+    #site_url: https://bouillotvincent.gitlab.io/pyodide_mkdocs/
     ace_style: # https://ace.c9.io/build/kitchen-sink.html for customization
         default: crimson_editor
         slate: tomorrow_night_bright
@@ -125,10 +126,15 @@ plugins:
   - macros
 
 extra_javascript:
-  - xtra/config.js                    # MathJax
+  - xtra/javascripts/mathjax-config.js                    # MathJax
+  - javascripts/config.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-  - xtra/interpreter.js
+  - xtra/javascripts/interpreter.js
+# - https://unpkg.com/mermaid@8.9.2/dist/mermaid.min.js
+# - javascripts/mermaid.js
 
 extra_css:
-  - xtra/pyoditeur.css
-  - xtra/ajustements.css                     # ajustements
+  - xtra/stylesheets/pyoditeur.css
+  - xtra/stylesheets/qcm.css
+  - xtra/stylesheets/ajustements.css                      # ajustements
