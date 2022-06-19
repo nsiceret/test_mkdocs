@@ -10,4 +10,4 @@ Sur [le site de France-IOI](http://www.france-ioi.org/) présente un apprentissa
 
 [Py-rates](https://py-rates.org/) est un autre site d'apprentissage de programmation, mais cette fois-ci le jeu consiste à aider des pirates et le site ne demande pas d'inscription.
 
-{{ IDE('../exemple') }}
+{{ qcm(["$6\\times 7$", "$\\int_0^{42} 1 dx$", "`#!python sum([i for i in range(10)])`", "La réponse D"], [1,2], shuffle = True) }}
