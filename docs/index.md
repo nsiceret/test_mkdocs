@@ -12,5 +12,4 @@ bientôt ici
 
 ## Section euro ?
 
-
-{{ IDE('exemple') }}
+[lien](euro)

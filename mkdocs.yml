@@ -16,24 +16,23 @@ nav :
             - 1NSI/02ArchitectureOrdinateur/02ExercicesVIC.md
         - 1NSI/03ProgrammerFonction/index.md
         - 1NSI/04NombresEntiersNaturels/index.md
-        - 1NSI/05BooléensOpérateursLogiques/index.md
+        - 1NSI/05BooleensOperateursLogiques/index.md
         - 1NSI/06Textes/index.md
-        - 1NSI/07SystèmesExploitation/index.md
+        - 1NSI/07SystemesExploitation/index.md
         - 1NSI/08Listes/index.md
         - 1NSI/09NombresEntiersRelatifs/index.md
         - 1NSI/10Dictionnaires/index.md
-        - 1NSI/11Réseaux/index.md
+        - 1NSI/11Reseaux/index.md
         - 1NSI/12Matrices/index.md
         - 1NSI/13RechercheDansTableau/index.md
         - 1NSI/14NombresFlottants/index.md
         - 1NSI/15AlgorithmesTri/index.md
-        - 1NSI/16DonnéesTables/index.md
+        - 1NSI/16DonneesTables/index.md
         - 1NSI/17AlgorithmesGloutons/index.md
         - 1NSI/18KNN/index.md
         - 1NSI/19IHMWeb/index.md
     - TNSI:
         - TNSI: TNSI/index.md
-
 
 theme:
     name: material
