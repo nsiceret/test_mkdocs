@@ -165,7 +165,7 @@ def define_env(env):
             # change backslash_newline by backslash-newline
             return content.replace('\n','bksl-nl').replace('_','py-und').replace('*','py-str')
         except :
-            print("The file you're looking for is not where you say it is !")
+            print("The file you're looking for is not where you say it is ! "+nom_script+" : "+path)
             return
         
     def generate_content(nom_script : str, path : str, filetype : str = 'py') -> str:
@@ -174,6 +174,7 @@ def define_env(env):
         """
         tc = env.variables['IDE_counter']
         env.variables['IDE_counter'] += 1
+
 
         content = read_ext_file(nom_script, path, filetype)
 
@@ -262,6 +263,8 @@ def define_env(env):
         path_img = env.variables.config["site_url"]
 
         path_file = '/'.join(filter(lambda folder: folder != "", convert_url_to_utf8(env.variables.page.abs_url).split('/')[2:-2]))
+         
+        #path_img = convert_url_to_utf8(env.variables.page.abs_url).split('/')[1]
                 
         content, tc = generate_content(nom_script, path_file)
 
@@ -276,6 +279,7 @@ def define_env(env):
         MAX = MAX if MAX not in ['+', 1000] else INFTY_SYMBOL
         corr_content, tc = generate_content(f"""{'/'.join(nom_script.split('/')[:-1])}/{nom_script.split('/')[-1]}_corr""", path_file)
         div_edit = f'<div class="ide_classe" data-max={MAX} data-exclude={"".join(SANS.split(" "))+"eval,exec"} >'
+        
         if mode == 'v':
             div_edit += f'<div class="wrapper"><div class="interior_wrapper"><div id="editor_{tc}"></div></div><div id="term_editor_{tc}" class="term_editor"></div></div>'
         else:

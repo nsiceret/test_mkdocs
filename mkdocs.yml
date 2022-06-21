@@ -125,18 +125,20 @@ extra:
 
 plugins:
   - search
+  - exclude-search:           # exclusion de pages de la recherche
+      exclude:
+        - N*/*/*/*.md         # les REM
+        - N*/*/*/*.py         # Les corrigés
+        - xtra/*.md           # inutile de chercher cela
+  - awesome-pages:
+        collapse_single_pages: true
   - macros
 
 extra_javascript:
-  - xtra/javascripts/mathjax-config.js                    # MathJax
-  - xtra/javascripts/config.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - xtra/config.js                    # MathJax
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-  - xtra/javascripts/interpreter.js
-#  - https://unpkg.com/mermaid@8.9.2/dist/mermaid.min.js
-#  - javascripts/mermaid.js
+  - xtra/interpreter.js
 
 extra_css:
-  - xtra/stylesheets/pyoditeur.css
-  #- xtra/stylesheets/qcm.css
-  - xtra/stylesheets/ajustements.css                      # ajustements
+  - xtra/pyoditeur.css
+  - xtra/ajustements.css  
