@@ -1,3 +1,3 @@
 # Listes, piles et files
 
-{{IDE('exemple')}}
+{{IDE('exoPiles')}}
