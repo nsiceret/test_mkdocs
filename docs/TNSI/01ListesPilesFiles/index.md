@@ -3,3 +3,7 @@
 Un exercice sur les piles :
 
 {{IDE('exoPiles')}}
+
+un vide :
+
+{{IDE('mfr')}}
