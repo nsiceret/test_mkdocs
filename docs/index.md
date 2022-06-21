@@ -1,15 +1,9 @@
 # Cours de NSI !
 
-bientôt ici
+En cours de construction.
 
-## NSI en première
+Vous trouverez bientôt ici les supports de cours de NSI faits au lycée Déodat-de-Séverac de Céret (Pyrénées-Orientales).
 
-[lien](1NSI/)
+Le menu du haut permet d'accéder aux niveaux.
 
-## NSI en terminale
-
-[lien](TNSI)
-
-## Section euro ?
-
-[lien](euro)
+Pour les élèves de 2021-2022 et avant, l'ancien site est [toujours disponible ici](https://zamo.repl.co).
