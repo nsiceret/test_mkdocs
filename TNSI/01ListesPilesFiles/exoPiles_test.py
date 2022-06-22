@@ -1,0 +1,1 @@
+assert len(P) == 4, "La pile devrait avoir 4 éléments"# 4 2 7 9assert P[0] == 4, "L'élément du bas de la pile devrait être 4" assert P[3] == 9, "L'élément du haut de la pile devrait être 9" assert P[1] == 2assert P[2] == 7
