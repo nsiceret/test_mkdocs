@@ -152,12 +152,13 @@ def define_env(env):
 
         try: 
             if path == "":
-                try : # base case 
-                    f = open(f"""{short_path}/scripts/{nom_script}.{filetype}""")
-                except : # minor subcase : .py directly in docs/ (should not happen...)
-                    f = open(f"""{short_path}/{path}/{nom_script}.{filetype}""")
+                # print(nom_script, f"""{short_path}/scripts/{nom_script}.{filetype}""")
+                f = open(f"""{short_path}/scripts/{nom_script}.{filetype}""")
             else:
+                # print('relp', f"""{short_path}/{path}/{nom_script}.{filetype}""")
+                # print(nom_script, f"""{short_path}/{path}/{nom_script}.{filetype}""")
                 f = open(f"""{short_path}/{path}/{nom_script}.{filetype}""")
+            # f = open(f"""{short_path}/scripts/{nom_script}.{filetype}""")
             content = ''.join(f.readlines())
             f.close()
             content = content + "\n"
@@ -165,7 +166,6 @@ def define_env(env):
             # change backslash_newline by backslash-newline
             return content.replace('\n','bksl-nl').replace('_','py-und').replace('*','py-str')
         except :
-            print("The file you're looking for is not where you say it is ! "+nom_script+" : "+path)
             return
         
     def generate_content(nom_script : str, path : str, filetype : str = 'py') -> str:
@@ -175,7 +175,6 @@ def define_env(env):
         tc = env.variables['IDE_counter']
         env.variables['IDE_counter'] += 1
 
-
         content = read_ext_file(nom_script, path, filetype)
 
         if content is not None :
@@ -184,12 +183,12 @@ def define_env(env):
 
     def create_upload_button(tc : str) -> str:
         """
-        Purpose : Create upoad button for a IDE number {tc}.
+        Purpose : Create upload button for a IDE number {tc}.
         Methods : Use an HTML input to upload a file from user. The user clicks on the button to fire a JS event
         that triggers the hidden input.
         """
-        path_img = env.variables.config["site_url"]
-        return f"""<button class="tooltip" onclick="document.getElementById('input_editor_{tc}').click()"><img src="{path_img}/images/buttons/icons8-upload-64.png"><span class="tooltiptext">Téléverser</span></button>\
+        path_img = env.variables.page.abs_url.split('/')[1]
+        return f"""<button class="tooltip" onclick="document.getElementById('input_editor_{tc}').click()"><img src="/{path_img}/images/buttons/icons8-upload-64.png"><span class="tooltiptext">Téléverser</span></button>\
                 <input type="file" id="input_editor_{tc}" name="file" enctype="multipart/form-data" class="hide"/>"""
 
     def create_unittest_button(tc: str, nom_script: str, path : str, mode: str, MAX : int = 5) -> str:
@@ -202,16 +201,15 @@ def define_env(env):
         nom_script = f"{relative_path}/{stripped_nom_script}_test"
         content = read_ext_file(nom_script, path)
         if content is not None: 
-            path_img = env.variables.config["site_url"]
+            path_img = env.variables.page.abs_url.split('/')[1]
             return f"""<span id="test_term_editor_{tc}" class="hide">{content}</span>\
                 <button class="tooltip" onclick=\'executeTest("{tc}","{mode}")\'>\
-                <img src="{path_img}/images/buttons/icons8-check-64.png">\
+                <img src="/{path_img}/images/buttons/icons8-check-64.png">\
                 <span class="tooltiptext">Valider</span></button><span class="compteur">\
                 {MAX}/{MAX}\
                 </span>"""
         else: 
             return ''
-
 
     def blank_space(s=0.3) -> str:
         """ 
@@ -253,19 +251,15 @@ def define_env(env):
         return IDE(nom_script, mode = 'v', MAX = MAX, SANS = SANS)
 
     @env.macro
-    def IDE(nom_script : str = '', mode : str = 'h', MAX : int = 5, SANS : str = "") -> str:
+    def IDE(nom_script : str = '', mode : str = 'h', MAX : int = 1000, SANS : str = "") -> str:
         """
         Purpose : Create an IDE (Editor+Terminal) on a Mkdocs document. {nom_script}.py is loaded on the editor if present. 
         Methods : Two modes are available : vertical or horizontal. Buttons are added through functional calls.
         Last span hides the code content of the IDE if loaded.
         """
-        #path_img = convert_url_to_utf8(env.variables.page.abs_url).split('/')[1]
-        path_img = env.variables.config["site_url"]
+        # path_img = convert_url_to_utf8(env.variables.page.abs_url).split('/')[1]
 
-        path_file = '/'.join(filter(lambda folder: folder != "", convert_url_to_utf8(env.variables.page.abs_url).split('/')[2:-2]))
-         
-        #path_img = convert_url_to_utf8(env.variables.page.abs_url).split('/')[1]
-                
+        path_file = '/'.join(filter(lambda folder: folder != "", convert_url_to_utf8(env.variables.page.url).split('/')[:-2]))
         content, tc = generate_content(nom_script, path_file)
 
         try:
@@ -278,19 +272,21 @@ def define_env(env):
         MAX = max_from_file if MAX == 5 else MAX
         MAX = MAX if MAX not in ['+', 1000] else INFTY_SYMBOL
         corr_content, tc = generate_content(f"""{'/'.join(nom_script.split('/')[:-1])}/{nom_script.split('/')[-1]}_corr""", path_file)
-        div_edit = f'<div class="ide_classe" data-max={MAX} data-exclude={"".join(SANS.split(" "))+"eval,exec"} >'
-        
+
+        SANS_formatted = ","+"".join(SANS.split(" ")) if len(SANS)>0 else ""
+        div_edit = f'<div class="ide_classe" data-max={MAX} data-exclude={"eval,exec" + SANS_formatted} >'
+
         if mode == 'v':
             div_edit += f'<div class="wrapper"><div class="interior_wrapper"><div id="editor_{tc}"></div></div><div id="term_editor_{tc}" class="term_editor"></div></div>'
         else:
             div_edit += f'<div class="wrapper_h"><div class="line" id="editor_{tc}"></div><div id="term_editor_{tc}" class="term_editor_h terminal_f_h"></div></div>'
 
-        div_edit += f"""<button class="tooltip" onclick='interpretACE("editor_{tc}","{mode}")'><img src="{path_img}/images/buttons/icons8-play-64.png"><span class="tooltiptext">Lancer</span></button>"""
+        div_edit += f"""<button class="tooltip" onclick='interpretACE("editor_{tc}","{mode}")'><img src="/images/buttons/icons8-play-64.png"><span class="tooltiptext">Lancer</span></button>"""
         div_edit += create_unittest_button(tc, nom_script, path_file, mode, MAX) 
-        div_edit += f"""{blank_space(1)}<button class="tooltip" onclick=\'downloadFile("editor_{tc}","{nom_script}")\'><img src="{path_img}/images/buttons/icons8-download-64.png"><span class="tooltiptext">Télécharger</span></button>{blank_space()}"""
+        div_edit += f"""{blank_space(1)}<button class="tooltip" onclick=\'downloadFile("editor_{tc}","{nom_script}")\'><img src="/images/buttons/icons8-download-64.png"><span class="tooltiptext">Télécharger</span></button>{blank_space()}"""
         div_edit += create_upload_button(tc) 
-        div_edit += f"""{blank_space(1)}<button class="tooltip" onclick=\'reload("{tc}","content")\'><img src="{path_img}/images/buttons/icons8-restart-64.png"><span class="tooltiptext">Recharger</span></button>{blank_space()}"""
-        div_edit += f"""<button class="tooltip" onclick=\'saveEditor("{tc}","content")\'><img src="{path_img}/images/buttons/icons8-save-64.png"><span class="tooltiptext">Sauvegarder</span></button>"""
+        div_edit += f"""{blank_space(1)}<button class="tooltip" onclick=\'reload("{tc}","content")\'><img src="/pratique/images/buttons/icons8-restart-64.png"><span class="tooltiptext">Recharger</span></button>{blank_space()}"""
+        div_edit += f"""<button class="tooltip" onclick=\'saveEditor("{tc}","content")\'><img src="/pratique/images/buttons/icons8-save-64.png"><span class="tooltiptext">Sauvegarder</span></button>"""
         div_edit += '</div>'
 
         div_edit += f"""<span id="content_editor_{tc}" class="hide">{content}</span>"""
@@ -319,15 +315,3 @@ def define_env(env):
             cmd += f"""<td><b style="font-size:1.2em">{column}</td>"""
         cmd += f"""</tr></table>"""
         return cmd
-
-    @env.macro
-    def affiche_addition(x, y):
-        texte = []
-        texte.append("Voici une addition")
-        texte.append("")
-        texte.append(f"{x} + {y} = {x + y}")
-        texte.append("")
-        texte.append("Avec LaTeX")
-        texte.append("")
-        texte.append(f"$${x} + {y} = {x + y}$$")
-        return "\n".join(texte)

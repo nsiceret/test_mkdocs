@@ -1,4 +1,4 @@
-# 02. Architecture d'un ordinateur
+# Modèle de von Neumann et langage machine
 
 ## Le modèle de von Neumann
 

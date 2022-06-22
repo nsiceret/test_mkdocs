@@ -13,4 +13,4 @@ Créez la pile :
 4
 ```
 
-{{IDE('TNSI/exoPiles')}}
+{{IDE('exoPiles')}}

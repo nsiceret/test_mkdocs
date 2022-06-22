@@ -1,78 +1,46 @@
 site_name: "NSI au lycée de Déodat-de-Séverac de Céret"
 site_url: https://nsiceret.github.io/
 repo_url: https://github.com/nsiceret/nsiceret.github.io
-edit_uri: tree/main/docs/
-
 docs_dir: docs
 
-nav :
-    - Accueil: index.md
-    - 1NSI:
-        - 1NSI/index.md
-        - 1NSI/01BasesProgrammation/index.md
-        - 02. Architecture d'un ordinateur: 
-            - 1NSI/02ArchitectureOrdinateur/index.md
-            - 1NSI/02ArchitectureOrdinateur/02ExplicationsVIC.md
-            - 1NSI/02ArchitectureOrdinateur/02ExercicesVIC.md
-        - 1NSI/03ProgrammerFonction/index.md
-        - 1NSI/04NombresEntiersNaturels/index.md
-        - 1NSI/05BooleensOperateursLogiques/index.md
-        - 1NSI/06Textes/index.md
-        - 1NSI/07SystemesExploitation/index.md
-        - 1NSI/08Listes/index.md
-        - 1NSI/09NombresEntiersRelatifs/index.md
-        - 1NSI/10Dictionnaires/index.md
-        - 1NSI/11Reseaux/index.md
-        - 1NSI/12Matrices/index.md
-        - 1NSI/13RechercheDansTableau/index.md
-        - 1NSI/14NombresFlottants/index.md
-        - 1NSI/15AlgorithmesTri/index.md
-        - 1NSI/16DonneesTables/index.md
-        - 1NSI/17AlgorithmesGloutons/index.md
-        - 1NSI/18KNN/index.md
-        - 1NSI/19IHMWeb/index.md
-    - TNSI:
-        - TNSI/index.md
-        - TNSI/01ListesPilesFiles/index.md
-        - TNSI/02POO/index.md
-        - TNSI/03Recursivite/index.md
-        - TNSI/04ArbresBinaires/index.md
+nav:
+  - "🏡Accueil": index.md
+  - ... | regex=^(?:(?!_REM.md).)*$
+
 
 theme:
-    name: material
     custom_dir: my_theme_customizations/
+
+    name: material
     font: false                     # RGPD ; pas de fonte Google
     language: fr                    # français
     palette:                        # Palettes de couleurs jour/nuit
       - media: "(prefers-color-scheme: light)"
-        scheme: slate
-        primary: teal
-        accent: orange
-        toggle:
-            icon: material/weather-night
-            name: Passer au mode jour
-      - media: "(prefers-color-scheme: dark)"
         scheme: default
         primary: teal
         accent: orange
         toggle:
             icon: material/weather-sunny
             name: Passer au mode nuit
+      - media: "(prefers-color-scheme: dark)"
+        scheme: slate
+        primary: teal
+        accent: orange
+        toggle:
+            icon: material/weather-night
+            name: Passer au mode jour
     features:
-        #- navigation.expand
-        - navigation.indexes
         - navigation.instant
-        - navigation.prune
-        #- navigation.sections
         - navigation.tabs
-        - navigation.tabs.sticky
         - navigation.top
-        - navigation.tracking
+        - toc.integrate
+        - header.autohide
 
 
 markdown_extensions:
     - meta
     - abbr
+
     - def_list                      # Les listes de définition.
     - attr_list                     # Un peu de CSS et des attributs HTML.
     - footnotes                     # Notes[^1] de bas de page.  [^1]: ma note.
@@ -81,24 +49,36 @@ markdown_extensions:
     - pymdownx.caret                # Passage ^^souligné^^ ou en ^exposant^.
     - pymdownx.mark                 # Passage ==surligné==.
     - pymdownx.tilde                # Passage ~~barré~~ ou en ~indice~.
-    - pymdownx.highlight            # Coloration syntaxique du code
+    - pymdownx.highlight:           # Coloration syntaxique du code
+        auto_title: true
+        auto_title_map:
+            "Python": "🐍 Script Python"
+            "Python Console Session": "🐍 Console Python"
+            "Text Only": "📋 Texte"
+            "E-mail": "📥 Entrée"
+            "Text Output": "📤 Sortie"
     - pymdownx.inlinehilite         # pour  `#!python  <python en ligne>`
     - pymdownx.snippets             # Inclusion de fichiers externe.
     - pymdownx.tasklist:            # Cases à cocher  - [ ]  et - [x]
         custom_checkbox:    false   #   avec cases d'origine
         clickable_checkbox: true    #   et cliquables.
-    - pymdownx.tabbed:               # Volets glissants.  === "Mon volet"
+    - pymdownx.tabbed:              # Volets glissants.  === "Mon volet"
         alternate_style: true 
-    - pymdownx.superfences:          # Imbrication de blocs.
-        preserve_tabs: true
     - pymdownx.keys:                # Touches du clavier.  ++ctrl+d++
         separator: "\uff0b"
     - pymdownx.emoji:               # Émojis  :boom:
         emoji_index:     !!python/name:materialx.emoji.twemoji
         emoji_generator: !!python/name:materialx.emoji.to_svg
-    - pymdownx.tasklist:
-        custom_checkbox: true
-        clickable_checkbox: true
+
+
+    - pymdownx.superfences:
+        custom_fences:
+          - name: mermaid
+            class: mermaid
+            format: !!python/name:pymdownx.superfences.fence_code_format
+
+
+
     - pymdownx.arithmatex:
         generic: true
     - toc:
@@ -107,32 +87,24 @@ markdown_extensions:
 
 extra:
     social:
-        # - icon: fontawesome/brands/gitlab
-        #   link: https://gitlab.com/ens-fr
-        #   name: Enseignement en français
+        - icon: fontawesome/brands/gitlab
+          link: https://gitlab.com/e-nsi
+          name: Enseignants de NSI
 
-        #- icon: fontawesome/brands/discourse
-        #  link: https://mooc-forums.inria.fr/moocnsi/
-        #  name: Le forum des enseignants de NSI
+        - icon: fontawesome/brands/discourse
+          link: https://mooc-forums.inria.fr/moocnsi/
+          name: Le forum des enseignants de NSI
 
-        #- icon: fontawesome/solid/paper-plane
-        #  link: mailto:prof-bouillot@protonmail.com
-        #  name: Écrire à l'auteur
-    ace_style: # https://ace.c9.io/build/kitchen-sink.html for customization
-        default: crimson_editor
-        slate: tomorrow_night_bright
-        # slate: tomorrow_night_bright|youtube if your dark mode is youtube
+    site_url: https://e-nsi.gitlab.io/nsi-pratique/
+
 
 plugins:
   - search
-  - exclude-search:           # exclusion de pages de la recherche
-      exclude:
-        - N*/*/*/*.md         # les REM
-        - N*/*/*/*.py         # Les corrigés
-        - xtra/*.md           # inutile de chercher cela
   - awesome-pages:
         collapse_single_pages: true
   - macros
+  #- tags:
+  #    tags_file: tags.md
 
 extra_javascript:
   - xtra/config.js                    # MathJax
@@ -141,4 +113,4 @@ extra_javascript:
 
 extra_css:
   - xtra/pyoditeur.css
-  - xtra/ajustements.css  
+  - xtra/ajustements.css                      # ajustements
