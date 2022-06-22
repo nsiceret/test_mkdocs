@@ -1,1 +1,1 @@
-assert len(P) == 4, "La pile devrait avoir 4 éléments, j'en ai trouvé "+len(P)# 4 2 7 9assert P[0] == 4, f"L'élément du bas de la pile devrait être {P[0]}" assert P[3] == 9, f"L'élément du haut de la pile devrait être {P[3]}" assert P[1] == 2, f"Je trouve {P[1]} au lieu de 2"assert P[2] == 7, f"Je trouve {P[2]} au lieu de 7"
+assert len(P) == 4, "La pile devrait avoir 4 éléments"# 4 2 7 9assert P[0] == 4, "L'élément du bas de la pile devrait être 4" assert P[3] == 9, "L'élément du haut de la pile devrait être 9" assert P[1] == 2assert P[2] == 7
