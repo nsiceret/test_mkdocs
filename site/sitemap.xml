@@ -121,7 +121,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://nsiceret.github.io/TNSI/01ListesPilesFiles/sujet/</loc>
+         <loc>https://nsiceret.github.io/TNSI/01ListesPilesFiles/</loc>
+         <lastmod>2022-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://nsiceret.github.io/TNSI/01ListesPilesFiles/010Files/01definition/</loc>
+         <lastmod>2022-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://nsiceret.github.io/TNSI/01ListesPilesFiles/010Files/02Parcourir/</loc>
+         <lastmod>2022-06-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://nsiceret.github.io/TNSI/01ListesPilesFiles/020Piles/</loc>
          <lastmod>2022-06-22</lastmod>
          <changefreq>daily</changefreq>
     </url>

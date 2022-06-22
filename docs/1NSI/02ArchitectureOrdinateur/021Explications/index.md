@@ -52,7 +52,7 @@ Par exemple, nous avons vu que l'instruction machine 000 se traduit en assembleu
     900
     000
     ```
-    Essayez ! Si vous écrivez n'importe quel nombre dans la premièce cellule de *Input*, ce programme va l'écrire dans *Ouput*. Pour que cela fonction, il faut écrire `800` dans la case mémoire d'adresse 00 et `900` dans celle d'adresse `01`.
+    Essayez ! Si vous écrivez n'importe quel nombre dans la premièce cellule de *Input*, ce programme va l'écrire dans *Ouput*. Pour que cela fonctionne, il faut écrire `800` dans la case mémoire d'adresse 00 et `900` dans celle d'adresse `01` et ensuite cliquer sur un des boutons d'exécution de *VIC*.
 
 Dans la suite, nous omettrons la ligne `000 STOP` pour alléger les programmes.
 
