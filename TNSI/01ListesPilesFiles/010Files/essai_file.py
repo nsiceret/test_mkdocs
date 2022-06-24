@@ -22,7 +22,7 @@ def defiler(file):
     Défile la file et renvoie l'élément enlevé
     """
     assert not est_vide(file),"on ne peut pas défiler une file vide"
-    return file.pop(0)    #fonction Python qui enlève et renvoie le dernier élément d'une 'list'
+    return file.pop(0)
 
 def afficher_file(file):
     """
