@@ -798,6 +798,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../00Introduction/" class="md-nav__link">
+        Observation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -928,20 +942,35 @@
 
 
 <h1 id="definition">Définition<a class="headerlink" href="#definition" title="Permanent link">⚓︎</a></h1>
-<p><img alt="Des enfants dans une file" src="../file_enfants.jpg" /></p>
-<p>Lorsque des enfants attendent pour se faire vacciner, ils se rangent à la queue-leu-leu, dans une <strong>file</strong>. Comment ça se passe ?</p>
-<p>D'abord, le personnel installe le lieu d'attente : il faut <strong>créer une file vide</strong> (sans enfant). Ensuite l'enfant 1 arrive, puis l'enfant 2, etc. On peut <strong>ajouter un enfant à la fin de la file</strong>, on dit aussi <strong>enfiler</strong>. Quand le personnel est prêt, il appelle le premier enfant arrivé, puis le deuxième… On ne peut enlever qu'un seul enfant à la fois de la file, celui qui est arrivé en premier : <strong>défiler</strong>. Enfin, lorsque la file est vide, on arrête les vaccins.</p>
+<p>Des enfants, dans une file d'attente, vont se faire vacciner ; des mannequins, dans un défilé de mode, sont photographiées ; des voitures, dans un embouteillage, vont sortir de la rue... toutes ces situations ont un point commun : les données (enfants, mannequins, voitures) sont rangées dans un certain ordre et obéissent à la règle "premier arrivé, premier servi". Cette situation s'appelle une <strong><em>file</em></strong>.</p>
+<p>Un <strong>type abstrait de données</strong> est un modèle correspondant à de nombreuses situations concrètes. Dans ce modèle abstrait, on garde uniquement les propriétés essentielles communes à toutes ces situations. L'intérêt est qu'en étudiant un modèle simple et abstrait, on peut résoudre de très nombreux problèmes concrets qui correspondent à ce modèle.</p>
+<p>Quelle sont les propriétés minimales du type abstrait de données "file" ?</p>
 <div class="admonition definition">
-<p class="admonition-title">Definition</p>
-<p>Une <strong>file</strong> est constituée d'éléments. On peut faire quatre opérations sur une file :</p>
+<p class="admonition-title">File : définition</p>
+<p>Une <strong><em>file</em></strong> est constituée d'éléments ou éventuellement être vide. On peut faire quatre opérations sur une file :</p>
 <ul>
 <li>créer une file vide ;</li>
 <li>tester si une file est vide ;</li>
-<li>ajouter (<strong>enfiler</strong>) un élément à la fin de la file ;</li>
-<li>enlever un élément du début de la file (ou <strong>défiler</strong>).</li>
+<li>ajouter un élément à la fin de la file : on dit <strong><em>enfiler</em></strong> ;</li>
+<li>enlever l'élément qui est au début de la file : <strong><em>défiler</em></strong> .</li>
 </ul>
 </div>
-<p>Les files suivent le principe <strong>FIFO</strong> (de l'anglais <em>First In, First Out</em>) : premier arrivé, premier sorti.</p>
+<p>Les files suivent le principe <strong><em>FIFO</em></strong> (de l'anglais <strong><em>First In, First Out</em></strong>) qui signifie <strong><em>premier arrivé, premier sorti</em></strong>. Pour traiter un élément de la file, il faut le défiler : on ne peut traiter que l'élément situé en tête et il faut l'enlever de la file.</p>
+<div class="admonition example">
+<p class="admonition-title">Premier exemple</p>
+<p>Ci-dessous le schéma d'une file. Supposons que trois éléments, Noa, Sam et Tim soient enfilés dans cet ordre. Nous obtenons la file suivante :
+<pre class="mermaid"><code>graph LR
+  Noa --&gt; Sam;
+  Sam --&gt; Tim;</code></pre>
+Si nous <em>défilons</em> la file, c'est le premier élément arrivé qui est enlevé :
+<pre class="mermaid"><code>graph LR
+  Sam --&gt; Tim;</code></pre>
+Si Jo arrive, la file devient :
+<pre class="mermaid"><code>graph LR
+  Sam --&gt; Tim;
+  Tim --&gt; Jo;</code></pre>
+car Jo doit se placer à la fin de la file.</p>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Essayez</p>
 <p>Ci-dessous, une interface Python fournit les fonctions suivantes :</p>
@@ -953,7 +982,7 @@
 </ul>
 <p>Avec en plus une fonction <code>afficher_file</code> qui vous sera utile.</p>
 <p>Vous pouvez avoir plus d'informations sur une fonction appelée <code>f</code> en tapant <code>help(f)</code> dans la console. Utilisez l'interface pour créer modifier et afficher des files.</p>
-<p><div class="ide_classe" data-max=∞ data-exclude=eval,exec ><div class="wrapper_h"><div class="line" id="editor_1"></div><div id="term_editor_1" class="term_editor_h terminal_f_h"></div></div><button class="tooltip" onclick='interpretACE("editor_1","h")'><img src="/images/buttons/icons8-play-64.png"><span class="tooltiptext">Lancer</span></button><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='downloadFile("editor_1","essai_file")'><img src="/images/buttons/icons8-download-64.png"><span class="tooltiptext">Télécharger</span></button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick="document.getElementById('input_editor_1').click()"><img src="https://e-nsi.gitlab.io/nsi-pratique//images/buttons/icons8-upload-64.png"><span class="tooltiptext">Téléverser</span></button>                <input type="file" id="input_editor_1" name="file" enctype="multipart/form-data" class="hide"/><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='reload("1","content")'><img src="/images/buttons/icons8-restart-64.png"><span class="tooltiptext">Recharger</span></button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick='saveEditor("1","content")'><img src="/images/buttons/icons8-save-64.png"><span class="tooltiptext">Sauvegarder</span></button></div><span id="content_editor_1" class="hide">#--- HDR ---#bksl-nldef creerpy-undfilepy-undvide():bksl-nl    """bksl-nl    Renvoie une file videbksl-nl    """bksl-nl    return []bksl-nlbksl-nldef estpy-undvide(file):bksl-nl    """bksl-nl    Renvoie True si <code>file</code> est vide, sinon renvoie Falsebksl-nl    """bksl-nl    return len(file) == 0bksl-nlbksl-nldef enfiler(file,item):bksl-nl    """bksl-nl    Emfile <code>item</code> à la fin de <code>file</code>bksl-nl    """bksl-nl    file.append(item)bksl-nl      bksl-nldef defiler(file):bksl-nl    """bksl-nl    Défile la file et renvoie l'élément enlevébksl-nl    """bksl-nl    assert not estpy-undvide(file),"on ne peut pas défiler une file vide"bksl-nl    return file.pop(0)    #fonction Python qui enlève et renvoie le dernier élément d'une 'list'bksl-nlbksl-nldef afficherpy-undfile(file):bksl-nl    """bksl-nl    Afficher <code>file</code> dans la consolebksl-nl    """bksl-nl    print('-&gt;'.join(map(str,file)))bksl-nl#--- HDR ---#bksl-nlbksl-nlF = creerpy-undfilepy-undvide() #une file videbksl-nlenfiler(F,3)      # j'enfile le nombre 3 dans Fbksl-nlenfiler(F,5)      # j'enfile le nombre 5 dans Fbksl-nldefiler(F)        # j'enlève... quoi ?bksl-nlenfiler(F,2)bksl-nlenfiler(F,8)bksl-nlafficherpy-undfile(F)bksl-nlbksl-nl</span><span id="corr_content_editor_1" class="hide" data-strudel=""></span></p>
+<p><div class="ide_classe" data-max=∞ data-exclude=eval,exec ><div class="wrapper_h"><div class="line" id="editor_1"></div><div id="term_editor_1" class="term_editor_h terminal_f_h"></div></div><button class="tooltip" onclick='interpretACE("editor_1","h")'><img src="/images/buttons/icons8-play-64.png"><span class="tooltiptext">Lancer</span></button><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='downloadFile("editor_1","essai_file")'><img src="/images/buttons/icons8-download-64.png"><span class="tooltiptext">Télécharger</span></button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick="document.getElementById('input_editor_1').click()"><img src="https://e-nsi.gitlab.io/nsi-pratique//images/buttons/icons8-upload-64.png"><span class="tooltiptext">Téléverser</span></button>                <input type="file" id="input_editor_1" name="file" enctype="multipart/form-data" class="hide"/><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='reload("1","content")'><img src="/images/buttons/icons8-restart-64.png"><span class="tooltiptext">Recharger</span></button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick='saveEditor("1","content")'><img src="/images/buttons/icons8-save-64.png"><span class="tooltiptext">Sauvegarder</span></button></div><span id="content_editor_1" class="hide">#--- HDR ---#bksl-nldef creerpy-undfilepy-undvide():bksl-nl    """bksl-nl    Renvoie une file videbksl-nl    """bksl-nl    return []bksl-nlbksl-nldef estpy-undvide(file):bksl-nl    """bksl-nl    Renvoie True si <code>file</code> est vide, sinon renvoie Falsebksl-nl    """bksl-nl    return len(file) == 0bksl-nlbksl-nldef enfiler(file,item):bksl-nl    """bksl-nl    Emfile <code>item</code> à la fin de <code>file</code>bksl-nl    """bksl-nl    file.append(item)bksl-nl      bksl-nldef defiler(file):bksl-nl    """bksl-nl    Défile la file et renvoie l'élément enlevébksl-nl    """bksl-nl    assert not estpy-undvide(file),"on ne peut pas défiler une file vide"bksl-nl    return file.pop(0)bksl-nlbksl-nldef afficherpy-undfile(file):bksl-nl    """bksl-nl    Afficher <code>file</code> dans la consolebksl-nl    """bksl-nl    print('-&gt;'.join(map(str,file)))bksl-nl#--- HDR ---#bksl-nlbksl-nlF = creerpy-undfilepy-undvide() #une file videbksl-nlenfiler(F,3)      # j'enfile le nombre 3 dans Fbksl-nlenfiler(F,5)      # j'enfile le nombre 5 dans Fbksl-nldefiler(F)        # j'enlève... quoi ?bksl-nlenfiler(F,2)bksl-nlenfiler(F,8)bksl-nlafficherpy-undfile(F)bksl-nlbksl-nl</span><span id="corr_content_editor_1" class="hide" data-strudel=""></span></p>
 </div>
 
               
@@ -975,7 +1004,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Pied de page">
       
         
-        <a href="../../" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Listes, piles et files" rel="prev">
+        <a href="../00Introduction/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Observation" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -984,7 +1013,7 @@
               <span class="md-footer__direction">
                 Précédent
               </span>
-              Listes, piles et files
+              Observation
             </div>
           </div>
         </a>
