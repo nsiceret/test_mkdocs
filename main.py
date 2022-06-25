@@ -187,10 +187,8 @@ def define_env(env):
         Methods : Use an HTML input to upload a file from user. The user clicks on the button to fire a JS event
         that triggers the hidden input.
         """
-        #path_img = env.variables.page.abs_url.split('/')[1]
-        #patch LZ
-        path_img = env.variables.site_url
-        return f"""<button class="tooltip" onclick="document.getElementById('input_editor_{tc}').click()"><img src="{path_img}/images/buttons/icons8-upload-64.png"><span class="tooltiptext">Téléverser</span></button>\
+       
+        return f"""<button class="tooltip" onclick="document.getElementById('input_editor_{tc}').click()"><img src="/images/buttons/icons8-upload-64.png"><span class="tooltiptext">Téléverser</span></button>\
                 <input type="file" id="input_editor_{tc}" name="file" enctype="multipart/form-data" class="hide"/>"""
 
     def create_unittest_button(tc: str, nom_script: str, path : str, mode: str, MAX : int = 5) -> str:
@@ -202,14 +200,10 @@ def define_env(env):
         relative_path = '/'.join(nom_script.split('/')[:-1])
         nom_script = f"{relative_path}/{stripped_nom_script}_test"
         content = read_ext_file(nom_script, path)
-        if content is not None: 
-            #path_img = env.variables.page.abs_url.split('/')[1]
-            #patch LZ
-            path_img = env.variables.site_url
-            
+        if content is not None:             
             return f"""<span id="test_term_editor_{tc}" class="hide">{content}</span>\
                 <button class="tooltip" onclick=\'executeTest("{tc}","{mode}")\'>\
-                <img src="{path_img}/images/buttons/icons8-check-64.png">\
+                <img src="/images/buttons/icons8-check-64.png">\
                 <span class="tooltiptext">Valider</span></button><span class="compteur">\
                 {MAX}/{MAX}\
                 </span>"""
@@ -262,8 +256,6 @@ def define_env(env):
         Methods : Two modes are available : vertical or horizontal. Buttons are added through functional calls.
         Last span hides the code content of the IDE if loaded.
         """
-        # path_img = convert_url_to_utf8(env.variables.page.abs_url).split('/')[1]
-
         path_file = '/'.join(filter(lambda folder: folder != "", convert_url_to_utf8(env.variables.page.url).split('/')[:-2]))
         content, tc = generate_content(nom_script, path_file)
 
