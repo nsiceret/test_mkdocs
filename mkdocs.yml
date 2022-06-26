@@ -54,7 +54,7 @@ markdown_extensions:
         auto_title_map:
             "Python": "🐍 Script Python"
             "Python Console Session": "🐍 Console Python"
-            "Text Only": "📋 Texte"
+            "Text Only": ""
             "E-mail": "📥 Entrée"
             "Text Output": "📤 Sortie"
     - pymdownx.inlinehilite         # pour  `#!python  <python en ligne>`

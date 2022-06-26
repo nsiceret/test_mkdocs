@@ -1,33 +1,26 @@
 # Parcourir une file
 
-Pour bien comprendre le concept de file, il faut s'imaginer une file d'attente avec une seule personne responsable, qui se trouve dans un guichet en tête de file. Il lui est impossible de savoir directement qui est la troisième personne qui attend ou même combien de personnes attendent. La personne au gichet peut seulement enlever l'enfant en tête de la file pour connaître son nom.
+Une file ne contient que quatre opérations (ou fonctions) élémentaires. En particulier, il n'y a pas de fonction `longueur` pour calculer le nombre d'éléments d'une file. Mais parfois on peut avoir besoin de plus.
 
-Pour savoir combien d'enfants attendent, on les fait tous sortir, un par un, dans l'ordre, en les comptant. Cela détruit la file.
+Le modèle à suivre pour étudier une file est de **défiler** un à un les éléments jusqu'à obtenir ce qu'on veut ou que la file soit vide. À noter que lorsqu'on défile un élément, on l'enlève de la file.
 
-Si cela vous paraît étrange, imaginez une file d'attente plus stricte que des enfants : à la douane. Les voyageurs passent un par un, dans l'ordre, devant la personne qui examine les bagages.
+Programmons deux nouvelles fonctions : `calculer` la longueur d'une file et `chercher` si un élément est dans une file.
 
-## Exemples
+## Longueur
 
-!!! example "Exemple : Longueur d'une file"
-    Ci-dessous, une fonction `longueur` qui calcule la longueur d'une file donnée en paramètre. Étudiez bien son code pour le comprendre.
+Pour calculer la longueur d'une file, on initialise un `compteur` à zéro. Puis, TANT QUE la file n'est pas vide, on défile l'élément de tête et on ajoute un au compteur.
 
-    {{IDE('longueur')}}
 
-!!! example "Exemple : Copier une file"
-    Ci-dessous, une fonction `copier` qui copie le contenu d'une file dans une autre file et renvoie cette dernière. À noter que la première est détruite.
+Ci-dessous, une fonction Python `longueur` qui calcule la longueur d'une file donnée en paramètre. Étudiez bien son code pour le comprendre.
 
-    {{IDE('copier')}}
+{{IDE('longueur')}}
 
-Vous pouvez vous inspirer des deux exemples pour résoudre le problème suivant.
+## Chercher
 
-## Exercices
+Pour chercher si une `cible` est dans une file, on initialise une variable `trouve` à `False`. Cela signifie qu'on n'a pas encore trouvé l'élément dans la file. Ensuite on utilise une boucle TANT QUE. TANT QUE on n'a pas trouvé ET que la file n'est pas vide, on défile l'élement de tête et on l'examine SI cet élément est égal à `cible`. Si il l'est, on affecte `True` à la variable `trouve`.
 
-!!! exercice
-    Programmez une fonction `longueur_nd` qui calcule la longueur d'une file, mais sans la détruire. 
+Après la boucle TANT QUE, on renvoie la valeur de `trouve`.
 
-    {{IDE('longueur_nd')}}
+Ci-dessous, une fonction Python `chercher(file,cible)` qui implémente cet algorithme.
 
-!!! exercice
-    Programmez une fonction `copier_nd` qui calcule la longueur d'une file, mais sans la détruire. 
-
-    {{IDE('copier_nd')}}
+{{IDE('chercher')}}

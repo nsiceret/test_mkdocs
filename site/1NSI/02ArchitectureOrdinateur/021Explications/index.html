@@ -847,7 +847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../TNSI/01ListesPilesFiles/" class="md-nav__link">
+      <a href="../../../TNSI/01ListesPilesFiles/00Introduction/" class="md-nav__link">
         Structures de données linéaires
       </a>
     </li>
@@ -901,7 +901,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../TNSI/01ListesPilesFiles/010Files/01definition/" class="md-nav__link">
+      <a href="../../../TNSI/01ListesPilesFiles/010Files/01Definition/" class="md-nav__link">
         Définition
       </a>
     </li>
@@ -935,10 +935,57 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_3" type="checkbox" id="__nav_3_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2_3">
+          Piles
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Piles" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Piles
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../TNSI/01ListesPilesFiles/020Piles/" class="md-nav__link">
-        Index
+      <a href="../../../TNSI/01ListesPilesFiles/020Piles/00Introduction/" class="md-nav__link">
+        Observation
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../TNSI/01ListesPilesFiles/020Piles/01Definition/" class="md-nav__link">
+        Définition
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1056,12 +1103,12 @@
 <div class="admonition example">
 <p class="admonition-title">Premier exemple : lire et afficher</p>
 <p>Un programme qui lit une donnée puis l'écrit dans <em>Ouput</em>. Ce programme s'écrirait ainsi en assembleur :
-<div class="highlight"><span class="filename">📋 Texte</span><pre><span></span><code>LIRE
+<div class="highlight"><pre><span></span><code>LIRE
 ÉCRIRE
 STOP
 </code></pre></div>
 ce qui donne, en langage machine de <em>VIC</em> :</p>
-<p><div class="highlight"><span class="filename">📋 Texte</span><pre><span></span><code>800
+<p><div class="highlight"><pre><span></span><code>800
 900
 000
 </code></pre></div>
@@ -1078,7 +1125,7 @@ Essayez ! Si vous écrivez n'importe quel nombre dans la premièce cellule de <e
 <p class="admonition-title">Affichage inverse</p>
 <p>On veut lire deux nombres, puis les afficher dans l'ordre inverse : d'abord le deuxième nombre entré, puis le premier. Pour cela, il faut garder le premier nombre en mémoire, par exemple dans la case 10.
 En assembleur cela donne : 
-<div class="highlight"><span class="filename">📋 Texte</span><pre><span></span><code>LIRE
+<div class="highlight"><pre><span></span><code>LIRE
 ENREGISTRER dans la case mémoire 10
 LIRE
 ÉCRIRE
@@ -1086,7 +1133,7 @@ CHARGER le nombre de la case mémore 10
 ÉCRIRE
 </code></pre></div>
 en langage machine de <em>VIC</em> :
-<div class="highlight"><span class="filename">📋 Texte</span><pre><span></span><code>800
+<div class="highlight"><pre><span></span><code>800
 410
 800
 900
@@ -1107,14 +1154,14 @@ en langage machine de <em>VIC</em> :
 <div class="admonition example">
 <p class="admonition-title">Addition de deux nombres</p>
 <p>Pour additionner deux nombres donnés en entrée, il faudra en enregistrer un en mémoire, par exemple dans la case 09.
-<div class="highlight"><span class="filename">📋 Texte</span><pre><span></span><code>LIRE (le premier nombre)
+<div class="highlight"><pre><span></span><code>LIRE (le premier nombre)
 ENREGISTRER dans la case mémoire 09
 LIRE (le deuxième)
 AJOUTER le nombre de la case 09 au registre de données
 ÉCRIRE
 </code></pre></div>
 en langage machine :
-<div class="highlight"><span class="filename">📋 Texte</span><pre><span></span><code>800
+<div class="highlight"><pre><span></span><code>800
 409
 800
 109
@@ -1130,11 +1177,11 @@ en langage machine :
 <div class="admonition example">
 <p class="admonition-title">Boucle infinie</p>
 <p>Pour exécuter une boucle infinie, on dit à <em>VIC</em> d'aller exécuter l'instruction de la case 01. Cette instruction lui dit d'aller à la case 00.
-<div class="highlight"><span class="filename">📋 Texte</span><pre><span></span><code>ALLER à la case 01
+<div class="highlight"><pre><span></span><code>ALLER à la case 01
 ALLER à la case 00
 </code></pre></div>
 en langage machine :
-<div class="highlight"><span class="filename">📋 Texte</span><pre><span></span><code>501
+<div class="highlight"><pre><span></span><code>501
 500
 </code></pre></div>
 Vous verrez le <strong>compteur ordinal</strong> (<em>Program Counter</em>) alterner entre 0 et 1. Pour arrêter <em>VIC</em>, appuyez sur le bouton en forme de carré.</p>
@@ -1148,14 +1195,14 @@ Vous verrez le <strong>compteur ordinal</strong> (<em>Program Counter</em>) alte
 <p class="admonition-title">Liste de nombres positifs</p>
 <p>On voudrait afficher une liste de nombres positifs donnés en entrée. Il va donc falloir LIRE, puis ALLER à une cellule indiquant d'écrire et de revenir au début du programme si le nombre lu est positif. Si le nombre n'est pas positif, on passe à la cellule suivante qui arrête le programme. Ce programme va lire et afficher les nombres positifs qui seront donnés en entrée. Il s'arrêtera au premier nombre négatif ou nul rencontré.</p>
 <p>En assembleur :
-<div class="highlight"><span class="filename">📋 Texte</span><pre><span></span><code>LIRE
+<div class="highlight"><pre><span></span><code>LIRE
 ALLER_POS à 03
 STOP
 ÉCRIRE
 ALLER à 0
 </code></pre></div>
 en langage machine :
-<div class="highlight"><span class="filename">📋 Texte</span><pre><span></span><code>800
+<div class="highlight"><pre><span></span><code>800
 703
 000
 900
