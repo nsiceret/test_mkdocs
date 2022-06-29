@@ -23,6 +23,7 @@ pyodide.runPython(`
     import js
     from pyodide import console
     import __main__
+    import mon_module
 
     class PyConsole(console._InteractiveConsole):
         def __init__(self):
