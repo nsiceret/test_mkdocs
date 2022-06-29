@@ -1,5 +1,5 @@
 site_name: "NSI au lycée de Déodat-de-Séverac de Céret"
-site_url: https://nsiceret.github.io
+site_url: https://nsiceret.github.io/
 repo_url: https://github.com/nsiceret/nsiceret.github.io
 docs_dir: docs
 
@@ -95,7 +95,7 @@ extra:
           link: https://mooc-forums.inria.fr/moocnsi/
           name: Le forum des enseignants de NSI
 
-    site_url: https://nsiceret.github.io
+    site_url: https://nsiceret.github.io/
 
 
 plugins:

@@ -7,11 +7,11 @@ Comme les files, les ***piles*** sont des structures de données linéaires : de
 
     - créer une pile vide ;
     - tester si une pile est vide ;
-    - ajouter un élément en haut de la pile : on dit ***empiler*** ;
+    - ajouter un élément au sommet de la pile : on dit ***empiler*** ;
     - enlever l'élément qui en haut de la file (donc le dernier ajouté) : ***dépiler*** .
 
 !!! example "Un exemple en informatique : l'historique"
-    En informatique, on utilise les piles pour enregistrer un historique. Supposons qu'un logiciel enregistre chaque mot qu'on tape dans une pile d'historique. Si on tape "Salut les gens", il va exécuter l'algorithme suivant :
+    En informatique, on utilise les piles pour enregistrer un historique. Supposons qu'un logiciel de traitement de textes enregistre chaque mot qu'on tape dans une pile d'historique. Si on tape "Salut les gens", il va exécuter l'algorithme suivant :
     ```
     créer une pile vide HISTORIQUE
     empiler "Salut" sur HISTORIQUE
