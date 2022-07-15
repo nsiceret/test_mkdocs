@@ -46,6 +46,8 @@
     
       <link rel="stylesheet" href="../../../../xtra/ajustements.css">
     
+      <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -814,7 +816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01definition/" class="md-nav__link">
+      <a href="../01Definition/" class="md-nav__link">
         Définition
       </a>
     </li>
@@ -1080,18 +1082,52 @@
 <h2 id="longueur">Longueur<a class="headerlink" href="#longueur" title="Permanent link">⚓︎</a></h2>
 <p>Pour calculer la longueur d'une file, on initialise un <code>compteur</code> à zéro. Puis, TANT QUE la file n'est pas vide, on défile l'élément de tête et on ajoute un au compteur.</p>
 <p>Ci-dessous, une fonction Python <code>longueur</code> qui calcule la longueur d'une file donnée en paramètre. Étudiez bien son code pour le comprendre.</p>
-<div class="ide_classe" data-max=∞ data-exclude=eval,exec ><div class="wrapper_h"><div class="line" id="editor_3"></div><div id="term_editor_3" class="term_editor_h terminal_f_h"></div></div><button class="tooltip" onclick='interpretACE("editor_3","h")'><img src="/images/buttons/icons8-play-64.png"><span class="tooltiptext">Lancer</span></button><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='downloadFile("editor_3","longueur")'><img src="/images/buttons/icons8-download-64.png"><span class="tooltiptext">Télécharger</span></button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick="document.getElementById('input_editor_3').click()"><img src="/images/buttons/icons8-upload-64.png"><span class="tooltiptext">Téléverser</span></button>                <input type="file" id="input_editor_3" name="file" enctype="multipart/form-data" class="hide"/><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='reload("3","content")'><img src="/images/buttons/icons8-restart-64.png"><span class="tooltiptext">Recharger</span></button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick='saveEditor("3","content")'><img src="/images/buttons/icons8-save-64.png"><span class="tooltiptext">Sauvegarder</span></button></div>
-<p><span id="content_editor_3" class="hide">#--- HDR ---#bksl-nldef creerpy-undfilepy-undvide():bksl-nl    """bksl-nl    Renvoie une file videbksl-nl    """bksl-nl    return []bksl-nlbksl-nldef estpy-undvide(file):bksl-nl    """bksl-nl    Renvoie True si <code>file</code> est vide, sinon renvoie Falsebksl-nl    """bksl-nl    return len(file) == 0bksl-nlbksl-nldef enfiler(file,item):bksl-nl    """bksl-nl    Emfile <code>item</code> à la fin de <code>file</code>bksl-nl    """bksl-nl    file.append(item)bksl-nl      bksl-nldef defiler(file):bksl-nl    """bksl-nl    Défile la file et renvoie l'élément enlevébksl-nl    """bksl-nl    assert not estpy-undvide(file),"on ne peut pas défiler une file vide"bksl-nl    return file.pop(0)    #fonction Python qui enlève et renvoie le dernier élément d'une 'list'bksl-nlbksl-nldef afficherpy-undfile(file):bksl-nl    """bksl-nl    Afficher <code>file</code> dans la consolebksl-nl    """bksl-nl    print('-&gt;'.join(map(str,file)))bksl-nl#--- HDR ---#bksl-nldef longueur(file):bksl-nl    compteur = 0bksl-nl    while not estpy-undvide(file):bksl-nl        defiler(file)bksl-nl        compteur += 1bksl-nl    return compteurbksl-nlbksl-nlF = creerpy-undfilepy-undvide() #une file videbksl-nlenfiler(F,3)      # j'enfile le nombre 3 dans Fbksl-nlenfiler(F,5)      # j'enfile le nombre 5 dans Fbksl-nlenfiler(F,2)bksl-nlenfiler(F,8)bksl-nlprint("longueur :",longueur(F))bksl-nl</span><span id="corr_content_editor_3" class="hide" data-strudel=""></span></p>
-<p><strong>A</strong></p>
-<p><strong>Z</strong></p>
+<p><py-env>
+- paths:
+  - ../files.py
+</py-env>
+<py-repl id="repl_longueur" title="Longueur d'un file">
+from files import *
+def longueur(file):
+    compteur = 0
+    while not est_vide(file):
+        defiler(file)
+        compteur += 1
+    return compteur
+F = creer_file_vide() #une file vide
+enfiler(F,3)      # j'enfile le nombre 3 dans F
+enfiler(F,5)      # j'enfile le nombre 5 dans F
+enfiler(F,2)
+enfiler(F,8)
+print("longueur :",longueur(F))
+</py-repl></p>
+<div id=repl_longueur_menu><button class="tooltip" onclick='alert(document.getElementById("repl_longueur").code)'><img src="/images/buttons/icons8-play-64.png"><span class="tooltiptext">Lancer</span></button>
+<span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='alert("download")'><img src="/images/buttons/icons8-download-64.png"><span class="tooltiptext">Télécharger</span></button><span style="display: inline-block; width:0.3em"></span>
+<span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='alert("restart")'><img src="/images/buttons/icons8-restart-64.png"><span class="tooltiptext">Recharger</span></button><span style="display: inline-block; width:0.3em"></span>
+<button class="tooltip" onclick='alert("save")'><img src="/images/buttons/icons8-save-64.png"><span class="tooltiptext">Sauvegarder</span></button>
+</div>
+
 <h2 id="chercher">Chercher<a class="headerlink" href="#chercher" title="Permanent link">⚓︎</a></h2>
 <p>Pour chercher si une <code>cible</code> est dans une file, on initialise une variable <code>trouve</code> à <code>False</code>. Cela signifie qu'on n'a pas encore trouvé l'élément dans la file. Ensuite on utilise une boucle TANT QUE. TANT QUE on n'a pas trouvé ET que la file n'est pas vide, on défile l'élement de tête et on l'examine SI cet élément est égal à <code>cible</code>. Si il l'est, on affecte <code>True</code> à la variable <code>trouve</code>.</p>
 <p>Après la boucle TANT QUE, on renvoie la valeur de <code>trouve</code>.</p>
 <p>Ci-dessous, une fonction Python <code>chercher(file,cible)</code> qui implémente cet algorithme.</p>
-<div class="ide_classe" data-max=∞ data-exclude=eval,exec ><div class="wrapper_h"><div class="line" id="editor_5"></div><div id="term_editor_5" class="term_editor_h terminal_f_h"></div></div><button class="tooltip" onclick='interpretACE("editor_5","h")'><img src="/images/buttons/icons8-play-64.png"><span class="tooltiptext">Lancer</span></button><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='downloadFile("editor_5","chercher")'><img src="/images/buttons/icons8-download-64.png"><span class="tooltiptext">Télécharger</span></button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick="document.getElementById('input_editor_5').click()"><img src="/images/buttons/icons8-upload-64.png"><span class="tooltiptext">Téléverser</span></button>                <input type="file" id="input_editor_5" name="file" enctype="multipart/form-data" class="hide"/><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='reload("5","content")'><img src="/images/buttons/icons8-restart-64.png"><span class="tooltiptext">Recharger</span></button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick='saveEditor("5","content")'><img src="/images/buttons/icons8-save-64.png"><span class="tooltiptext">Sauvegarder</span></button></div>
-<p><span id="content_editor_5" class="hide">#--- HDR ---#bksl-nldef creerpy-undfilepy-undvide():bksl-nl    """bksl-nl    Renvoie une file videbksl-nl    """bksl-nl    return []bksl-nlbksl-nldef estpy-undvide(file):bksl-nl    """bksl-nl    Renvoie True si <code>file</code> est vide, sinon renvoie Falsebksl-nl    """bksl-nl    return len(file) == 0bksl-nlbksl-nldef enfiler(file,item):bksl-nl    """bksl-nl    Emfile <code>item</code> à la fin de <code>file</code>bksl-nl    """bksl-nl    file.append(item)bksl-nl      bksl-nldef defiler(file):bksl-nl    """bksl-nl    Défile la file et renvoie l'élément enlevébksl-nl    """bksl-nl    assert not estpy-undvide(file),"on ne peut pas défiler une file vide"bksl-nl    return file.pop(0)bksl-nlbksl-nldef afficherpy-undfile(file):bksl-nl    """bksl-nl    Afficher <code>file</code> dans la consolebksl-nl    """bksl-nl    print('-&gt;'.join(map(str,file)))bksl-nl#--- HDR ---#bksl-nldef chercher(file,cible):bksl-nl    trouve = Falsebksl-nl    while (not trouve) and (not estpy-undvide(file)):bksl-nl        e = defiler(file)bksl-nl        if e == cible:bksl-nl            trouve = Truebksl-nl    return trouvebksl-nl</span><span id="corr_content_editor_5" class="hide" data-strudel=""></span></p>
-<p><strong>A</strong></p>
-<p><strong>Z</strong></p>
+<p><py-repl id="repl_chercher">
+from files import *
+def chercher(file,cible):
+    trouve = False
+    while (not trouve) and (not est_vide(file)):
+        e = defiler(file)
+        if e == cible:
+            trouve = True
+    return trouve
+ # test
+F = creer_file_vide() #une file vide
+enfiler(F,3)      # j'enfile le nombre 3 dans F
+enfiler(F,5)      # j'enfile le nombre 5 dans F
+enfiler(F,2)
+enfiler(F,8)
+print(chercher(F,8))
+</py-repl></p>
 
               
     <script src="../../../../js/ide.js"></script> 
@@ -1112,7 +1148,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Pied de page">
       
         
-        <a href="../01definition/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Définition" rel="prev">
+        <a href="../01Definition/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Définition" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1183,6 +1219,7 @@
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.top", "toc.integrate", "header.autohide"], "search": "../../../../assets/javascripts/workers/search.5e67fbfe.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.config.lang": "fr", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Rechercher", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version.title": "S\u00e9lectionner la version"}}</script>
     
     
+    
       <script src="../../../../assets/javascripts/bundle.c44cc438.min.js"></script>
       
         <script src="../../../../xtra/config.js"></script>
@@ -1192,5 +1229,7 @@
         <script src="../../../../xtra/interpreter.js"></script>
       
     
+    <script defer src="https://pyscript.net/releases/2022.05.1/pyscript.js"></script>
+
   </body>
 </html>
