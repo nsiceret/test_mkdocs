@@ -10,7 +10,7 @@ nav:
 
 theme:
     custom_dir: my_theme_customizations/
-
+    
     name: material
     font: false                     # RGPD ; pas de fonte Google
     language: fr                    # français
@@ -103,8 +103,6 @@ plugins:
   - awesome-pages:
         collapse_single_pages: true
   - macros
-  #- tags:
-  #    tags_file: tags.md
 
 extra_javascript:
   - xtra/config.js                    # MathJax
@@ -114,3 +112,4 @@ extra_javascript:
 extra_css:
   - xtra/pyoditeur.css
   - xtra/ajustements.css                      # ajustements
+  - https://pyscript.net/alpha/pyscript.css

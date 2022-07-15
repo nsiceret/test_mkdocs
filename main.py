@@ -166,7 +166,7 @@ def define_env(env):
             # change backslash_newline by backslash-newline
             return content.replace('\n','bksl-nl').replace('_','py-und').replace('*','py-str')
         except :
-            return
+            return "NOT FOUND : "+f"""{short_path}/scripts/{nom_script}.{filetype}"""
         
     def generate_content(nom_script : str, path : str, filetype : str = 'py') -> str:
         """
@@ -312,3 +312,44 @@ def define_env(env):
             cmd += f"""<td><b style="font-size:1.2em">{column}</td>"""
         cmd += f"""</tr></table>"""
         return cmd
+    
+    @env.macro
+    def boutons(id_repl:str) -> str:
+        """
+        menu de boutons pour un repl de pyscript
+        """
+        path_file = '/'.join(filter(lambda folder: folder != "", convert_url_to_utf8(env.variables.page.url).split('/')[:-2]))
+        
+        code = f'document.getElementById("{id_repl}").code'
+        
+        div_edit = f'<div id={id_repl}_menu>'
+
+        div_edit += f"""<button class="tooltip" onclick=\'alert({code})\'><img src="/images/buttons/icons8-play-64.png"><span class="tooltiptext">Lancer</span></button>\n"""
+        div_edit += f"""{blank_space(1)}<button class="tooltip" onclick='alert("download")\'><img src="/images/buttons/icons8-download-64.png"><span class="tooltiptext">Télécharger</span></button>{blank_space()}\n"""
+        #div_edit += create_upload_button(tc) 
+        div_edit += f"""{blank_space(1)}<button class="tooltip" onclick='alert("restart")\'><img src="/images/buttons/icons8-restart-64.png"><span class="tooltiptext">Recharger</span></button>{blank_space()}\n"""
+        div_edit += f"""<button class="tooltip" onclick='alert("save")\'><img src="/images/buttons/icons8-save-64.png"><span class="tooltiptext">Sauvegarder</span></button>\n"""
+        div_edit += '</div>'
+
+        #div_edit += f"""<span id="content_editor_{tc}" class="hide">{content}</span>"""
+        #div_edit += f"""<span id="corr_content_editor_{tc}" class="hide" data-strudel="{str(clef)}">{corr_content}</span>"""
+        return div_edit
+    
+    
+        elt_insertion = [elt for elt in env.page.markdown.split("\n") if test_style(nom_script, elt)]
+        elt_insertion = elt_insertion[0] if len(elt_insertion) >=1 else ""
+        indent = " "*(len(elt_insertion) - len(elt_insertion.lstrip()))
+        if nom_script == '' : indent = " "  # to avoid conflict with empty IDEs
+        if indent == "":
+            div_edit += f'''
+{indent}--8<--- "docs/xtra/start_REM.md"
+'''
+        div_edit += f'''
+{indent}--8<--- "docs/{path_file if path_file != "" else 'scripts'}/{nom_script}_REM.md"''' if clef == "" else f""
+        if indent == "":
+            div_edit += f'''
+{indent}--8<--- "docs/xtra/end_REM.md"
+'''
+        return div_edit
+    
+    

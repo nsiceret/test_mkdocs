@@ -1,3 +1,6 @@
+---
+template: pyscript.html
+---
 # Parcourir une file
 
 Une file ne contient que quatre opérations (ou fonctions) élémentaires. En particulier, il n'y a pas de fonction `longueur` pour calculer le nombre d'éléments d'une file. Mais parfois on peut avoir besoin de plus.
@@ -13,7 +16,26 @@ Pour calculer la longueur d'une file, on initialise un `compteur` à zéro. Puis
 
 Ci-dessous, une fonction Python `longueur` qui calcule la longueur d'une file donnée en paramètre. Étudiez bien son code pour le comprendre.
 
-{{IDE('longueur')}}
+<py-env>
+- paths:
+  - ../files.py
+</py-env>
+<py-repl id="repl_longueur" title="Longueur d'un file">
+from files import *
+def longueur(file):
+    compteur = 0
+    while not est_vide(file):
+        defiler(file)
+        compteur += 1
+    return compteur
+F = creer_file_vide() #une file vide
+enfiler(F,3)      # j'enfile le nombre 3 dans F
+enfiler(F,5)      # j'enfile le nombre 5 dans F
+enfiler(F,2)
+enfiler(F,8)
+print("longueur :",longueur(F))
+</py-repl>
+{{boutons('repl_longueur')}}
 
 ## Chercher
 
@@ -23,4 +45,20 @@ Après la boucle TANT QUE, on renvoie la valeur de `trouve`.
 
 Ci-dessous, une fonction Python `chercher(file,cible)` qui implémente cet algorithme.
 
-{{IDE('chercher')}}
+<py-repl id="repl_chercher">
+from files import *
+def chercher(file,cible):
+    trouve = False
+    while (not trouve) and (not est_vide(file)):
+        e = defiler(file)
+        if e == cible:
+            trouve = True
+    return trouve
+ # test
+F = creer_file_vide() #une file vide
+enfiler(F,3)      # j'enfile le nombre 3 dans F
+enfiler(F,5)      # j'enfile le nombre 5 dans F
+enfiler(F,2)
+enfiler(F,8)
+print(chercher(F,8))
+</py-repl>
